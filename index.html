@@ -13,14 +13,15 @@
     <script defer="index.js"></script>
 </head>
 
-<body>
-    <div>
-        <h1 class="header ">What's for Dinner?</h1>
+<body class="container-flex">
+    <div class="container-fluid">
+        <h1 class="header">What's for Dinner?
+            <img src="images/WhatsForDinnerLogo.png" alt="What's for dinner Logo">
+        </h1>
     </div>
-    <div class="dropdown-group">
+    <div class="dropdown-group container-fluid">
         <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Entree
             </button>
             <ul class="dropdown-menu">
@@ -30,8 +31,7 @@
             </ul>
         </div>
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Sides
             </button>
             <ul class="dropdown-menu">
@@ -41,8 +41,7 @@
             </ul>
         </div>
         <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Beverage
             </button>
             <ul class="dropdown-menu">
@@ -62,15 +61,17 @@
             </ul>
         </div>
     </div>
-    <div class="img-group">
-        <div class="food-items"><img src="https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg"
-                alt=""></div>
-        <div class="food-items"><img src="https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg"
-                alt=""></div>
-        <div class="food-items"><img src="https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg"
-                alt=""></div>
-        <div class="food-items"><img src="https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg"
-                alt=""></div>
+    <div class="img-group container food-pic shadow">
+        <div class="row ">
+            <div class="food-items col-md-3"><img
+                    src="https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg" alt=""></div>
+            <div class="food-items col-md-3"><img
+                    src="https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg" alt=""></div>
+            <div class="food-items col-md-3"><img
+                    src="https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg" alt=""></div>
+            <div class="food-items col-md-3"><img
+                    src="https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg" alt=""></div>
+        </div>
     </div>
 
     <div class="form-group">
@@ -79,22 +80,22 @@
 
             <label for="new-entree">Type of meal</label>
             <input type="text" id="new-entree">
-
+            <br><br>
 
             <label for="new-side">Name of meal</label>
 
             <input type="text" id="new-side">
+            <br><br>
 
 
             <label for="new-beverage">Ingredients</label>
-
             <input type="text" id="new-beverage">
-
+            <br><br>
 
             <label for="new-dessert">Recipe</label>
 
             <input type="text" id="new-dessert">
-
+            <br><br>
             <button class="submit-dessert">Submit dessert</button>
         </form>
     </div>
