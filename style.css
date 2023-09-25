@@ -47,6 +47,7 @@ input {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   color: #fff;
+  border-radius: 10px;
 }
 .header img {
   border: none;
@@ -64,6 +65,7 @@ input {
     display: none;
   }
 }
+
 .dropdown-group {
   width: 100%;
   display: flex;
