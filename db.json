@@ -1,0 +1,16 @@
+{
+  "food": [
+    {
+      "id": "1",
+      "title": "Shrimp Tacos with Avocado, Grapefruit, and Creamy Cilantro Sauce",
+      "image": "https://spoonacular.com/recipeImages/1697739-312x231.jpeg",
+      "imageType": "jpeg"
+    },
+    {
+      "id": "1",
+      "title": "Shrimp Tacos with Avocado, Grapefruit, and Creamy Cilantro Sauce",
+      "image": "https://spoonacular.com/recipeImages/1697739-312x231.jpeg",
+      "imageType": "jpeg"
+    }
+  ]
+}
