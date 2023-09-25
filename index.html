@@ -88,11 +88,21 @@
 
 
     <!-- Add new meal form -->
-    <div class="form-group">
-        <form action="" class="col-1 container-flex">
+    <div class="form-group container-flex">
+        <form id="new-form" action="" class="col-1 container-flex">
 
-            <label for="new-entree">Type of meal</label>
-            <input type="text" id="new-entree">
+            <div class="dropdown">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    id="type-of-meal">
+                    Type of meal
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Entree</a></li>
+                    <li><a class="dropdown-item" href="#">Side</a></li>
+                    <li><a class="dropdown-item" href="#">Beverage</a></li>
+                    <li><a class="dropdown-item" href="#">Dessert</a></li>
+                </ul>
+            </div>
             <br><br>
 
             <label for="new-side">Name of meal</label>
@@ -111,6 +121,7 @@
             <br><br>
             <button class="submit-meal btn btn-dark">Submit new meal</button>
         </form>
+        <div id="submitted-meal-container"></div>
     </div>
 
     <!-- Bootstrap js -->
