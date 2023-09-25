@@ -7,6 +7,12 @@ const submittedMeal = document.querySelector('#submitted-meal-container')
 
 // Fetch Request
 
+
+// Create submit event
+// event needs to point to the form to listen
+// need to post new data entered by user into the API and onto the page
+// ? where should the submited data end up on page?
+//  may need to append data to a location on the page
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const mealData = mealData(form);
@@ -27,3 +33,4 @@ const sendMealToAPI = (mealObj => {
     .then(resp => resp.json());
     .then(mealArr = )
 })
+// 
