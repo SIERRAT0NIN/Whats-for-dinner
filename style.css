@@ -71,6 +71,9 @@ input {
   margin-top: -15px;
   padding: 20px 0;
 }
+.dropdown-item {
+  display: list-item;
+}
 .form-group {
   width: 100%;
   padding-left: 40%;
@@ -98,4 +101,11 @@ input {
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
+}
+#footer {
+  text-align: center;
+}
+#foodImg {
+  width: 14rem;
+  height: 14rem;
 }
