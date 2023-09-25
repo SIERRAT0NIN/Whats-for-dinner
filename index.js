@@ -1,7 +1,8 @@
 // Global variables
 const form = document.querySelector('#new-form');
 const apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian";
-const submittedMeal = document.querySelector('#submitted-meal-container')
+const submittedMeal = document.querySelector('#submitted-meal-container');
+const
 
 // Helper functions
 
@@ -21,6 +22,7 @@ form.addEventListener('submit', (e) => {
         mealObj[key] = value;
     })
     sendMealToAPI(mealObj)
+    form.reset();
 });
 const sendMealToAPI = (mealObj => {
     fetch(apiUrl, {
@@ -29,8 +31,9 @@ const sendMealToAPI = (mealObj => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(mealObj),
-    });
-    .then(resp => resp.json());
-    .then(mealArr = )
-})
-// 
+    })
+    .then(resp => resp.json())
+    .then(mealArr => mealArr.map(mealObj))
+    .catch(err => alert('Cannot Save'))
+});
+
