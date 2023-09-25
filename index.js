@@ -1,42 +1,49 @@
 // Global variables
-
-const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=American`;
+const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=`;
 const foodItems = document.querySelector(".food-items");
 const foodImgDisplay = document.querySelector("#food-img");
 const img = document.createElement("img");
 const dropdownItem = document.querySelector(".dropdown-item");
 const dropdownMenu = document.querySelector(".dropdown-menu");
-const dropdownLi = document.createElement("li");
 const country = document.querySelector(".country");
+const entree = document.querySelector(".entree");
+const dropdownLi = document.createElement("li");
 
 // Fetch Request
-fetch(apiUrl)
-  .then((response) => response.json())
-  .then((mealData) => renderMeals(mealData))
-  .catch((error) => console.log("There was an error"));
+const fetchApi = () => {
+  fetch(apiUrl + selectedCountry)
+    .then((response) => response.json())
+    .then((mealData) => renderMeals(mealData))
+    .catch((error) => console.log("There was an error"));
+};
 
 // Helper functions
 // When a country is selected, update the selected-country text content with country's name
 
+var selectedCountry = "";
 dropdownMenu.addEventListener("click", (e) => {
-  const selectedCountry = e.target.text;
-  country.textContent = selectedCountry;
+  selectedCountry = e.target.text;
   console.log(selectedCountry);
-  return selectedCountry;
+  country.textContent = selectedCountry;
+  fetchApi();
 });
+
 // Render img
-
 const renderMeals = (mealData) => {
-  mealData.meals.forEach((mealImg) => {
-    const mealImgUrl = mealImg.strMealThumb;
+  mealData.meals.forEach((meal) => {
+    const mealImgUrl = meal.strMealThumb;
+    const mealName = meal.strMeal;
     img.src = mealImgUrl;
-    foodImgDisplay.append(img);
 
-    console.log(mealImg);
+    listMeals(mealName);
   });
 };
-
 // Selected country should be updated into the api using `${country} ` at the end of the api
+const listMeals = (mealName) => {
+  console.log(mealName);
+  dropdownLi.textContent = mealName;
+  dropdownItem.appendChild(dropdownLi);
+};
 
 // Selected country's meals should be displayed into the drop down menu.
 
