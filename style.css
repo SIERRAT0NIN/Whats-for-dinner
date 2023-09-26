@@ -8,7 +8,7 @@
 img {
   height: 100px;
   width: 150px;
-  border: 3px solid black;
+
   border-radius: 20px;
   margin: 0px auto;
   display: block;
@@ -75,6 +75,7 @@ input {
 }
 .dropdown-item {
   display: list-item;
+  cursor: pointer;
 }
 .form-group {
   width: 100%;
@@ -83,8 +84,8 @@ input {
   justify-content: space-between;
   align-self: auto;
 }
-.food-pic {
-  display: contents;
+#foodImg {
+  height: auto;
 }
 .submit-meal {
   background-color: #3b00002d;
@@ -110,4 +111,7 @@ input {
 #foodImg {
   width: 14rem;
   height: 14rem;
+}
+.row {
+  width: 100%;
 }
