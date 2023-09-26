@@ -11,10 +11,14 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Javascript -->
 
+    <script src="key.js"></script>
+
+
  <!-- anne-branch -->
 
 <!-- Web page is responsive. The content will adjust according to the screen size, (mobile). -->
-=======
+
+
     <script defer src="index.js"></script>
 </head>
 <!-- Web page is reponsive. The content will adjust according to the screen size, (mobile). -->
@@ -23,7 +27,11 @@
 
 <!-- "class='container-flex','container-fluid','container' " come from Bootstrap, to make the page responsive. -->
 
+
+
+
   
+
 <body class="container-flex">
     <!-- Header -->
     <div class="container-fluid">
@@ -40,7 +48,13 @@
                 Select a country!
             </button>
             <ul class="dropdown-menu">
+
+                <li><a class="dropdown-item" href="#">Algerian</a></li>
                 <li><a class="dropdown-item" href="#">American</a></li>
+                <li><a class="dropdown-item" href="#">Argentinian </a></li>
+
+                <li><a class="dropdown-item" href="#">American</a></li>
+
                 <li><a class="dropdown-item" href="#">British </a></li>
                 <li><a class="dropdown-item" href="#">Canadian </a></li>
                 <li><a class="dropdown-item" href="#">Chinese </a></li>
@@ -74,16 +88,26 @@
             </ul>
         </div>
         <div class="dropdown">
+
+            <button class="btn btn-light dropdown-toggle" id=dropentree type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Entree
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item entree" href="#">TEST</a></li>
+
             <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Entree
             </button>
             <ul class="dropdown-menu">
                 <li class="dropdown-item entree"></li>
 
+
             </ul>
         </div>
         <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-light dropdown-toggle" id=dropsides type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Sides
             </button>
             <ul class="dropdown-menu">
@@ -93,7 +117,8 @@
             </ul>
         </div>
         <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-light dropdown-toggle" id=dropbev type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Beverage
             </button>
             <ul class="dropdown-menu">
@@ -107,7 +132,7 @@
                 Dessert
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Dessert 1</a></li>
+                <li id="dropdessert"><a class="dropdown-item" href="#">Dessert 1</a></li>
                 <li><a class="dropdown-item" href="#">Dessert 2</a></li>
                 <li><a class="dropdown-item" href="#">Dessert 3</a></li>
             </ul>
@@ -128,6 +153,11 @@
 
     <!-- Add new meal form -->
     <div class="form-group container-flex">
+
+        <form action="" class="col-1 container-flex">
+
+            <div class="dropdown">
+
  <!-- anne-branch -->
 
         <form id="new-form" action="" class="col-1 container-flex">
@@ -139,6 +169,7 @@
             <div class="dropdown">
  <!-- anne-branch -->
 
+
                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
                     id="type-of-meal">
                     Type of meal
@@ -148,7 +179,13 @@
                     <li><a class="dropdown-item" href="#">Side</a></li>
                     <li><a class="dropdown-item" href="#">Beverage</a></li>
                     <li><a class="dropdown-item" href="#">Dessert</a></li>
+
+                </ul>
+            </div>
+            <br><br>
+=======
  <!-- anne-branch -->
+
 
                 </ul> -->
             <!-- </div> -->

@@ -1,10 +1,12 @@
 /* https://colorhunt.co/palette/4e6e81f9dbbbff03032e3840   ---> Color Theme  */
 
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Croissant+One&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans&family=Rubik&display=swap");
+
 * {
   background-color: #f9dbbb;
   font-family: "Montserrat", sans-serif;
 }
+
 img {
   height: 100px;
   width: 150px;
@@ -13,6 +15,7 @@ img {
   margin: 0px auto;
   display: block;
 }
+
 label {
   background-color: #3b00002d;
   text-align: center;
@@ -22,10 +25,12 @@ label {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
 }
+
 form {
   display: block;
   padding: 2%;
 }
+
 input {
   background-color: #4e6e81;
   color: black;
@@ -36,6 +41,7 @@ input {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
+
 .header {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   width: 100%;
@@ -49,6 +55,7 @@ input {
   color: #fff;
   border-radius: 10px;
 }
+
 .header img {
   border: none;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -60,6 +67,7 @@ input {
   position: fixed;
   transform: translateY(-80px);
 }
+
 @media (max-width: 575.98px) {
   .header img {
     display: none;
@@ -73,9 +81,17 @@ input {
   margin-top: -15px;
   padding: 20px 0;
 }
+
+
 .dropdown-item {
   display: list-item;
 }
+
+
+.dropdown-item {
+  display: list-item;
+}
+
 .form-group {
   width:100%;
   padding-left: 37%;
@@ -83,9 +99,11 @@ input {
   justify-content: space-between;
   align-self: auto;
 }
+
 .food-pic {
   display: contents;
 }
+
 .submit-meal {
   background-color: #3b00002d;
   text-align: center;
@@ -95,6 +113,10 @@ input {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
 }
+
+
+
+
 #type-of-meal {
   background-color: #3b00002d;
   text-align: center;
@@ -104,9 +126,17 @@ input {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
 }
+
+
 #footer {
   text-align: center;
 }
+
+
+#footer {
+  text-align: center;
+}
+
 #foodImg {
   width: 14rem;
   height: 14rem;
