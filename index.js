@@ -7,7 +7,6 @@ const dropdownItem = document.querySelector(".dropdown-item");
 const dropdownMenu = document.querySelector(".dropdown-menu");
 const country = document.querySelector(".country");
 const entree = document.querySelector(".entree");
-const dropdownLi = document.createElement("li");
 
 // Fetch Request
 const fetchApi = () => {
@@ -34,15 +33,20 @@ const renderMeals = (mealData) => {
     const mealImgUrl = meal.strMealThumb;
     const mealName = meal.strMeal;
     img.src = mealImgUrl;
-
     listMeals(mealName);
   });
 };
 // Selected country should be updated into the api using `${country} ` at the end of the api
 const listMeals = (mealName) => {
   console.log(mealName);
-  dropdownLi.textContent = mealName;
-  dropdownItem.appendChild(dropdownLi);
+  const dropdownLi = document.createElement("li");
+  dropdownLi.classList.add("dropdown-item");
+  //   const foodList = (entree.innerHTML = dropdownLi.textContent = mealName);
+  const foodArray = [mealName];
+  foodArray.forEach((food) => {
+    dropdownLi.textContent = food;
+    entree.append(dropdownLi);
+  });
 };
 
 // Selected country's meals should be displayed into the drop down menu.
