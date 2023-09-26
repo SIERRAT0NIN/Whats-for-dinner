@@ -77,8 +77,8 @@ input {
   display: list-item;
 }
 .form-group {
-  width: 100%;
-  padding-left: 40%;
+  width:100%;
+  padding-left: 37%;
   display: flex;
   justify-content: space-between;
   align-self: auto;
