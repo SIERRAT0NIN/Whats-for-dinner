@@ -8,6 +8,8 @@ const dropdownMenu = document.querySelector(".dropdown-menu");
 const country = document.querySelector(".country");
 const entree = document.querySelector(".entree");
 
+// 2nd API for food categorie (side)
+const secoundApi = `www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`;
 // Fetch Request
 const fetchApi = () => {
   fetch(apiUrl + selectedCountry)
@@ -17,6 +19,7 @@ const fetchApi = () => {
 };
 
 // Helper functions
+
 // When a country is selected, update the selected-country text content with country's name
 
 var selectedCountry = "";
@@ -29,14 +32,20 @@ dropdownMenu.addEventListener("click", (e) => {
 
 // Render img
 const renderMeals = (mealData) => {
-  mealData.meals.forEach((meal) => {
-    const mealImgUrl = meal.strMealThumb;
-    const mealName = meal.strMeal;
-
-    foodImgDisplay.setAttribute("id", "foodImg");
-    foodImgDisplay.src = mealImgUrl;
-    listMeals(mealName);
-  });
+  mealData.meals.forEach(
+    (meal) => {
+      const mealImgUrl = meal.strMealThumb;
+      const mealName = meal.strMeal;
+      foodImgDisplay.setAttribute("id", "foodImg");
+      foodImgDisplay.src = mealImgUrl;
+      listMeals(mealName);
+    },
+    // Add event listener to dropdownItem (.dropdown-item)
+    dropdownItem.addEventListener("click", (e) => {
+      const selecteFoodItem = e.target.textContent;
+      console.log(e.target.textContent);
+    })
+  );
 };
 
 // Selected country should be updated into the api using `${country} ` at the end of the api
@@ -50,16 +59,6 @@ const listMeals = (mealName) => {
     entree.append(dropdownLi);
   });
 };
-
-dropdownItem.addEventListener("click", (e) => {
-  const selecteFoodItem = e.target.textContent;
-  console.log(e.target.textContent);
-  return selecteFoodItem;
-});
-
-// Add event listener to dropdownItem (.dropdown-item)
-
-// Selected country's meals should be displayed into the drop down menu.
 
 // Use the .filter() to filter the sides and dessert. Will need another api for beverages.
 
