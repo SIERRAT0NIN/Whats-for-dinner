@@ -39,7 +39,7 @@ const sendMealToAPI = (mealObj => {
     })
     .then(resp => resp.json())
     .then(mealArr => console.log(mealArr))
-//     .then(mealArr => mealArr.map(mealObj))
-//     .catch(err => alert('Cannot Save'))
+    .then(mealArr => mealArr.map(mealObj))
+    .catch(err => alert('Cannot Save'))
 });
 
