@@ -82,13 +82,19 @@ input {
   padding: 20px 0;
 }
 
+
+.dropdown-item {
+  display: list-item;
+}
+
+
 .dropdown-item {
   display: list-item;
 }
 
 .form-group {
-  width: 100%;
-  padding-left: 40%;
+  width:100%;
+  padding-left: 37%;
   display: flex;
   justify-content: space-between;
   align-self: auto;
@@ -108,6 +114,9 @@ input {
   margin-bottom: 10px;
 }
 
+
+
+
 #type-of-meal {
   background-color: #3b00002d;
   text-align: center;
@@ -117,6 +126,12 @@ input {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
 }
+
+
+#footer {
+  text-align: center;
+}
+
 
 #footer {
   text-align: center;
