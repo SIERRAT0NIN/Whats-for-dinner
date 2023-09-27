@@ -34,41 +34,39 @@ const newMealName = document.querySelector('new-meal');
 const newIngredients = document.querySelector('new-ingredients');
 const newRecipe = document.querySelector('new-recipe');
 
-// Create submit event
+
+//! Create submit event
 // event needs to point to the form to listen
 // need to post new data entered by user into the API and onto the page
-// ? where should the submited data end up on page?
-//  may need to append data to a location on the page
+// ? where should the submited data end up on page? !!! It should go into the Countries dropdown as an 'li'
+//  may need to append data to a location on the page ^^
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    // if (toggleEl.style.display === 'none' || toggleEl.style.display === '') {
-    //     toggleEl.style.display = 'block';
-    // } else {
-    //     toggleEl.style.display = 'none;'
-    // }
-    const mealData = mealData(form);
-    const mealObj = {};
-    mealData.forEach((value, key) => {
-        mealObj[key] = value;
+    const formData = formData(form);
+    const formObj = {};
+    formData.forEach((value, key) => {
+        formObj[key] = value;
     })
+    const sendMealToAPI = (formObj => {
+      fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formObj),
+      })
+      .then(resp => resp.json())
+      .then(mealArr => console.log(mealArr))
+      // .then(mealArr => mealArr.map(mealObj))
+      .catch(err => alert('Cannot Save'))
+  });
     sendMealToAPI(mealObj)
     form.reset();
+    dropdownMenu.appendChild(form)
 });
-const sendMealToAPI = (mealObj => {
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(mealObj),
-    })
-    .then(resp => resp.json())
-    .then(mealArr => console.log(mealArr))
-    .then(mealArr => mealArr.map(mealObj))
-    .catch(err => alert('Cannot Save'))
-});
+// ! I need the submit to post the user information into the Country dropdown-menu list (li)
 
- <!-- anne-branch -->
+//  <!-- anne-branch -->
 
 
 var selectedCountry = "";
