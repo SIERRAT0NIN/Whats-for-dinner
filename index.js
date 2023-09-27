@@ -27,7 +27,7 @@ const fetchApi = () => {
 
 
 
-const form = document.querySelector('#new-form');
+const newForm = document.querySelector('.col-1');
 const submittedMeal = document.querySelector('#submitted-meal-container');
 const newMealType = document.querySelector('#new-meal-type');
 const newMealName = document.querySelector('new-meal');
@@ -40,35 +40,36 @@ const newRecipe = document.querySelector('new-recipe');
 // need to post new data entered by user into the API and onto the page
 // ? where should the submited data end up on page? !!! It should go into the Countries dropdown as an 'li'
 //  may need to append data to a location on the page ^^
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = formData(form);
-    const formObj = {};
-    formData.forEach((value, key) => {
-        formObj[key] = value;
-    })
-    const sendMealToAPI = (formObj => {
-      fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formObj),
-      })
-      .then(resp => resp.json())
-      .then(mealArr => console.log(mealArr))
-      // .then(mealArr => mealArr.map(mealObj))
-      .catch(err => alert('Cannot Save'))
-  });
-    sendMealToAPI(mealObj)
-    form.reset();
-    dropdownMenu.appendChild(form)
+newForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    debugger
+    // const formData = formData(form);
+//     const formObj = {};
+//     formData.forEach((value, key) => {
+//         formObj[key] = value;
+    // })
+//     const sendMealToAPI = (formObj => {
+//       fetch(apiUrl, {
+//           method: 'POST',
+//           headers: {
+//               'Content-Type': 'application/json'
+//           },
+//           body: JSON.stringify(formObj),
+//       })
+//       .then(resp => resp.json())
+//       .then(mealArr => console.log(mealArr))
+//       // .then(mealArr => mealArr.map(mealObj))
+//       .catch(err => alert('Cannot Save'))
+//   });
+//     sendMealToAPI(mealObj)
+//     form.reset();
+//     dropdownMenu.appendChild(form)
 });
 // ! I need the submit to post the user information into the Country dropdown-menu list (li)
 
 //  <!-- anne-branch -->
 
-
+// !
 var selectedCountry = "";
 dropdownMenu.addEventListener("click", (e) => {
   selectedCountry = e.target.text;
@@ -77,36 +78,34 @@ dropdownMenu.addEventListener("click", (e) => {
   fetchApi();
 });
 
-// Render img
+// // Render img
 const renderMeals = (mealData) => {
   mealData.meals.forEach((meal) => {
     const mealImgUrl = meal.strMealThumb;
     const mealName = meal.strMeal;
     img.src = mealImgUrl;
 
-
-
-
     listMeals(mealName);
   });
 };
-// Selected country should be updated into the api using `${country} ` at the end of the api
-const listMeals = (mealName) => {
-  console.log(mealName);
+// // Selected country should be updated into the api using `${country} ` at the end of the api
+// const listMeals = (mealName) => {
+//   console.log(mealName);
 
-  dropdownLi.textContent = mealName;
-  dropdownItem.appendChild(dropdownLi);
+//   dropdownLi.textContent = mealName;
+//   dropdownItem.appendChild(dropdownLi);
 
-  const dropdownLi = document.createElement("li");
-  dropdownLi.classList.add("dropdown-item");
-  //   const foodList = (entree.innerHTML = dropdownLi.textContent = mealName);
-  const foodArray = [mealName];
-  foodArray.forEach((food) => {
-    dropdownLi.textContent = food;
-    entree.append(dropdownLi);
-  });
+//   const dropdownLi = document.createElement("li");
+//   dropdownLi.classList.add("dropdown-item");
+//   //   const foodList = (entree.innerHTML = dropdownLi.textContent = mealName);
+//   const foodArray = [mealName];
+//   foodArray.forEach((food) => {
+//     dropdownLi.textContent = food;
+//     entree.append(dropdownLi);
+//   });
 
-};
+// };
+// !
 
 // Selected country's meals should be displayed into the drop down menu.
 
@@ -116,35 +115,35 @@ const listMeals = (mealName) => {
 
 // submit button
 
+// !
 
+// document.querySelector("#dropentree").addEventListener(`mouseover`,
+//   function () {
+//     //open modal
+//     console.log("Modal")
+//   })
 
-document.querySelector("#dropentree").addEventListener(`mouseover`,
-  function () {
-    //open modal
-    console.log("Modal")
-  })
+// document.querySelector("#dropbev").addEventListener(`mouseover`,
+//   function () {
+//     //open modal
+//     console.log("Modal")
+//   })
 
-document.querySelector("#dropbev").addEventListener(`mouseover`,
-  function () {
-    //open modal
-    console.log("Modal")
-  })
+// // }
 
-// }
+// document.querySelector("#dropsides").addEventListener(`mouseover`,
+//   function () {
+//     //open modal
+//     console.log("Modal")
+//   })
+// // }
 
-document.querySelector("#dropsides").addEventListener(`mouseover`,
-  function () {
-    //open modal
-    console.log("Modal")
-  })
-// }
-
-document.querySelector("#dropdessert").addEventListener(`mouseover`,
-  function () {
-    //open modal
-    console.log("Modal")
-  })
-
+// document.querySelector("#dropdessert").addEventListener(`mouseover`,
+//   function () {
+//     //open modal
+//     console.log("Modal")
+//   })
+// !
 
 /*
 class hidden
@@ -184,6 +183,4 @@ closeModalBtn.addEventListener("mouseover", closeModal);
 </d>
 */
 
- <!-- anne-branch -->
-
-
+  
