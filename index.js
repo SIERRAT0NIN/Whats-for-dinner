@@ -1,12 +1,8 @@
 // Global variables
-//  <!-- anne-branch -->
 
 const form = document.querySelector("#new-form");
-
 const submittedMeal = document.querySelector("#submitted-meal-container");
 const toggleEl = document.querySelector(".dropdown-toggle");
-//  <!-- anne-branch -->
-
 const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=`;
 const foodItems = document.querySelector(".food-items");
 const foodImgDisplay = document.querySelector("#food-img");
@@ -14,7 +10,9 @@ const img = document.createElement("img");
 const dropdownItem = document.querySelector(".dropdown-item");
 const dropdownMenu = document.querySelector(".dropdown-menu");
 const country = document.querySelector(".country");
-const entree = document.querySelector(".entree");
+
+const dropdownFoodItems = document.querySelector(".dropdown-food-item");
+const selectedEntree = document.querySelector(".selectedEntree");
 
 // Fetch Request
 const fetchApi = () => {
@@ -23,14 +21,6 @@ const fetchApi = () => {
     .then((mealData) => renderMeals(mealData))
     .catch((error) => console.log("There was an error"));
 };
-//  <!-- anne-branch -->
-
-// Helper functions
-// When a country is selected, update the selected-country text content with country's name
-
-//  <!-- anne-branch -->
-
-// Fetch Request
 
 // Create submit event
 // event needs to point to the form to listen
@@ -52,51 +42,70 @@ form.addEventListener("submit", (e) => {
   sendMealToAPI(mealObj);
   form.reset();
 });
-const sendMealToAPI = (mealObj) => {
-  fetch(apiUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(mealObj),
-  })
-    .then((resp) => resp.json())
-    .then((mealArr) => console.log(mealArr))
-    .then((mealArr) => mealArr.map(mealObj))
-    .catch((err) => alert("Cannot Save"));
-};
-
-//  <!-- anne-branch -->
+// const sendMealToAPI = (mealObj) => {
+//   fetch(apiUrl, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(),
+//   })
+//     .then((resp) => resp.json())
+//     .then((mealArr) => console.log(mealArr))
+//     .then((mealArr) => mealArr.map(mealObj))
+//     .catch((err) => alert("Cannot Save"));
+// };
 
 var selectedCountry = "";
 dropdownMenu.addEventListener("click", (e) => {
   selectedCountry = e.target.text;
-  console.log(selectedCountry);
   country.textContent = selectedCountry;
   fetchApi();
 });
 
-// Render img
+const entree = document.querySelector(".entree");
 const renderMeals = (mealData) => {
-  mealData.meals.forEach((meal) => {
-    const mealImgUrl = meal.strMealThumb;
-    const mealName = meal.strMeal;
-    img.src = mealImgUrl;
-    listMeals(mealName);
+  const meals = mealData.meals;
+  meals.forEach((foodItem) => {
+    const foodListItem = foodItem.strMeal;
+    entreeMenu(foodItem);
   });
 };
-// Selected country should be updated into the api using `${country} ` at the end of the api
-const listMeals = (mealName) => {
-  console.log(mealName);
-  const dropdownLi = document.createElement("li");
-  dropdownLi.classList.add("dropdown-item");
-  //   const foodList = (entree.innerHTML = dropdownLi.textContent = mealName);
-  const foodArray = [mealName];
-  foodArray.forEach((food) => {
-    dropdownLi.textContent = food;
-    entree.append(dropdownLi);
-  });
+
+const entreeMenu = (foodItem) => {
+  const li = document.createElement("li");
+  li.setAttribute("id", "meal-item");
+  li.textContent = foodItem.strMeal;
+  entree.appendChild(li);
 };
+
+// mealData.meals.forEach((meal) => {
+//   const mealName = meal.strMeal;
+//   const mealImgUrl = meal.strMealThumb;
+//   dropdownLi.classList.add("dropdown-food-item");
+
+//   entree.append(dropdownLi);
+// });
+// };
+
+// const renderImgs = (img) => {
+//   entree.addEventListener("click", (e) => {
+//     const listMeals = (mealName) => {
+//       const foodArray = [mealName];
+//       foodArray.forEach((food) => {
+//         dropdownLi.textContent = food;
+//         entree.append(dropdownLi);
+//       });
+//     };
+//   });
+// };
+// const chooseEntree = (e) => {
+//   selectedEntree = e.target;
+
+//   console.log(selectedEntree);
+// };
+
+//  <!-- Alberto-branch -->
 
 // Selected country's meals should be displayed into the drop down menu.
 
