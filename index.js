@@ -6,14 +6,13 @@ const toggleEl = document.querySelector(".dropdown-toggle");
 const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=`;
 const foodItems = document.querySelector(".food-items");
 const foodImgDisplay = document.querySelector("#food-img");
-const img = document.createElement("img");
 const dropdownItem = document.querySelector(".dropdown-item");
 const dropdownMenu = document.querySelector(".dropdown-menu");
 const country = document.querySelector(".country");
-
+const foodImg = document.querySelector("#food-img");
 const dropdownFoodItems = document.querySelector(".dropdown-food-item");
 const selectedEntree = document.querySelector(".selectedEntree");
-
+const selectedImage = document.querySelector(".selectedImage");
 // Fetch Request
 const fetchApi = () => {
   fetch(apiUrl + selectedCountry)
@@ -67,42 +66,28 @@ const entree = document.querySelector(".entree");
 const renderMeals = (mealData) => {
   const meals = mealData.meals;
   meals.forEach((foodItem) => {
-    const foodListItem = foodItem.strMeal;
     entreeMenu(foodItem);
+    // renderImg(foodItem);
   });
 };
-
 const entreeMenu = (foodItem) => {
   const li = document.createElement("li");
   li.setAttribute("id", "meal-item");
   li.textContent = foodItem.strMeal;
+  li.addEventListener("click", () => {
+    selectedImage.innerHTML = "";
+    renderImg(foodItem);
+  });
+
   entree.appendChild(li);
 };
+const renderImg = (foodItem) => {
+  const img = document.createElement("img");
+  img.setAttribute("id", "meal-item");
+  img.src = foodItem.strMealThumb;
+  selectedImage.appendChild(img);
+};
 
-// mealData.meals.forEach((meal) => {
-//   const mealName = meal.strMeal;
-//   const mealImgUrl = meal.strMealThumb;
-//   dropdownLi.classList.add("dropdown-food-item");
-
-//   entree.append(dropdownLi);
-// });
-// };
-
-// const renderImgs = (img) => {
-//   entree.addEventListener("click", (e) => {
-//     const listMeals = (mealName) => {
-//       const foodArray = [mealName];
-//       foodArray.forEach((food) => {
-//         dropdownLi.textContent = food;
-//         entree.append(dropdownLi);
-//       });
-//     };
-//   });
-// };
-// const chooseEntree = (e) => {
-//   selectedEntree = e.target;
-
-//   console.log(selectedEntree);
 // };
 
 //  <!-- Alberto-branch -->
