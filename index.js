@@ -1,15 +1,5 @@
 // Global variables
 
-
- <!-- anne-branch -->
-
-const form = document.querySelector('#new-form');
-const apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian";
-const submittedMeal = document.querySelector('#submitted-meal-container');
-const toggleEl = document.querySelector('.dropdown-toggle')
- <!-- anne-branch -->
-
-
 const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=`;
 const foodItems = document.querySelector(".food-items");
 const foodImgDisplay = document.querySelector("#food-img");
@@ -36,16 +26,13 @@ const fetchApi = () => {
 // When a country is selected, update the selected-country text content with country's name
 
 
- <!-- anne-branch -->
 
-
-// Helper functions
-// When a country is selected, update the selected-country text content with country's name
-
- <!-- anne-branch -->
-
-// Fetch Request
-
+const form = document.querySelector('#new-form');
+const submittedMeal = document.querySelector('#submitted-meal-container');
+const newMealType = document.querySelector('#new-meal-type');
+const newMealName = document.querySelector('new-meal');
+const newIngredients = document.querySelector('new-ingredients');
+const newRecipe = document.querySelector('new-recipe');
 
 // Create submit event
 // event needs to point to the form to listen
