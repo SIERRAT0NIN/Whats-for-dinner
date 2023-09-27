@@ -28,7 +28,7 @@ const fetchApi = () => {
 
 
 const newForm = document.querySelector('.col-1');
-const submittedMeal = document.querySelector('#submitted-meal-container');
+const submittedMeal = document.querySelector('#submit-output');
 const newMealType = document.querySelector('#new-meal-type');
 const newMealName = document.querySelector('new-meal');
 const newIngredients = document.querySelector('new-ingredients');
@@ -42,39 +42,47 @@ const newRecipe = document.querySelector('new-recipe');
 //  may need to append data to a location on the page ^^
 newForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    const addNewMealType = e.target['new-meal-type'].value
-    const addMealName = e.target['new-meal'].value
-    const addNewIng = e.target['new-ingredient'].value
-    const addNewRecipe = e.target['new-recipe'].value
-    console.log(addMealName)
-    console.log(addNewMealType)
-    console.log(addNewIng)
-    console.log(addNewRecipe)
-    newForm.reset()
-    // const formData = formData(form);
-//     const formObj = {};
-//     formData.forEach((value, key) => {
-//         formObj[key] = value;
-    // })
-//     const sendMealToAPI = (formObj => {
-//       fetch(apiUrl, {
-//           method: 'POST',
-//           headers: {
-//               'Content-Type': 'application/json'
-//           },
-//           body: JSON.stringify(formObj),
-//       })
-//       .then(resp => resp.json())
-//       .then(mealArr => console.log(mealArr))
-//       // .then(mealArr => mealArr.map(mealObj))
-//       .catch(err => alert('Cannot Save'))
-//   });
-//     sendMealToAPI(mealObj)
-//     form.reset();
-//     dropdownMenu.appendChild(form)
-});
-// ! I need the submit to post the user information into the Country dropdown-menu list (li)
+    // const newMealForm = (newObj) = {
+      const addNewMealType = e.target['new-meal-type'].value
+      const addMealName = e.target['new-meal'].value
+      const addNewIng = e.target['new-ingredient'].value
+      const addNewRecipe = e.target['new-recipe'].value
+      // console.log(addMealName)
+      // console.log(addNewMealType)
+      // console.log(addNewIng)
+      // console.log(addNewRecipe)
+      const output = {
+        
+      }
 
+    // }
+    newForm.reset()
+});    
+// ! I need the submit to post the user information into the Country dropdown-menu list (li)
+function renderSubmitForm(meal) {
+  // addMealName.innerHTML = ""
+  const listLi = document.createElement(li)
+  listLi.className = 'list-li'
+  const h3 = document.createElement('h3')
+  h3.textContent = meal['new-meal']
+  submittedMeal.appendChild(listLi)
+}
+
+
+
+// const submitHandler = (e) => {
+//   e.preventDefault()
+//   const userMeal = {
+//     const addNewMealType = e.target['new-meal-type'].value
+//     const addMealName = e.target['new-meal'].value
+//     const addNewIng = e.target['new-ingredient'].value
+//     const addNewRecipe = e.target['new-recipe'].value
+//   }
+//   renderSubmitForm(userMeal)
+//   e.target.reset()
+// }
+
+// newForm.addEventListener('submit', submitHandler)
 //  <!-- anne-branch -->
 
 // !

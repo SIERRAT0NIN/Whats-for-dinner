@@ -137,9 +137,10 @@ input {
 }
 
 
-/* #footer {
-  text-align: center;
-} */
+#submit-output {
+  position: fixed;
+  display: contents;
+}
 
 #foodImg {
   width: 14rem;
