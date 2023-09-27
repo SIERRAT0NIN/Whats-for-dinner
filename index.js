@@ -42,7 +42,15 @@ const newRecipe = document.querySelector('new-recipe');
 //  may need to append data to a location on the page ^^
 newForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    debugger
+    const addNewMealType = e.target['new-meal-type'].value
+    const addMealName = e.target['new-meal'].value
+    const addNewIng = e.target['new-ingredient'].value
+    const addNewRecipe = e.target['new-recipe'].value
+    console.log(addMealName)
+    console.log(addNewMealType)
+    console.log(addNewIng)
+    console.log(addNewRecipe)
+    newForm.reset()
     // const formData = formData(form);
 //     const formObj = {};
 //     formData.forEach((value, key) => {

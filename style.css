@@ -129,13 +129,17 @@ input {
 
 
 #footer {
-  text-align: center;
+  position: fixed;
+  text-align: left;
+  bottom: 0;
+  width: 100%;
+  height: auto;
 }
 
 
-#footer {
+/* #footer {
   text-align: center;
-}
+} */
 
 #foodImg {
   width: 14rem;
