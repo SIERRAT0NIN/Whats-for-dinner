@@ -137,9 +137,8 @@ input {
 }
 
 
-#submit-output {
-  position: fixed;
-  display: contents;
+div#submit-output {
+  float: left;
 }
 
 #foodImg {

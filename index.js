@@ -42,7 +42,7 @@ const newRecipe = document.querySelector('new-recipe');
 //  may need to append data to a location on the page ^^
 newForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    // const newMealForm = (newObj) = {
+
       const addNewMealType = e.target['new-meal-type'].value
       const addMealName = e.target['new-meal'].value
       const addNewIng = e.target['new-ingredient'].value
@@ -51,22 +51,22 @@ newForm.addEventListener('submit', (e) => {
       // console.log(addNewMealType)
       // console.log(addNewIng)
       // console.log(addNewRecipe)
-      const output = {
-        
-      }
 
-    // }
+      const li = document.createElement('li')
+      li.textContent = addMealName
+      submittedMeal.append(li)
+      
     newForm.reset()
 });    
 // ! I need the submit to post the user information into the Country dropdown-menu list (li)
-function renderSubmitForm(meal) {
-  // addMealName.innerHTML = ""
-  const listLi = document.createElement(li)
-  listLi.className = 'list-li'
-  const h3 = document.createElement('h3')
-  h3.textContent = meal['new-meal']
-  submittedMeal.appendChild(listLi)
-}
+// function renderSubmitForm(meal) {
+//   // addMealName.innerHTML = ""
+//   const listLi = document.createElement(li)
+//   listLi.className = 'list-li'
+//   const h3 = document.createElement('h3')
+//   h3.textContent = meal['new-meal']
+//   submittedMeal.appendChild(listLi)
+// }
 
 
 
