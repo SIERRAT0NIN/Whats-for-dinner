@@ -11,8 +11,12 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Javascript -->
 
+
+
+
     <script defer src="index.js"></script>
 </head>
+
 
 
 
@@ -128,74 +132,64 @@
     <!-- Add new meal form -->
     <div class="form-group container-flex">
 
-        <form action="" class="col-1 container-flex" id="new-form">
-
-
         <form action="" class="col-1 container-flex">
 
+
+
+
+
+
+
+
+
+        <form id="new-form" action="" class="col-1 container-flex">
+        <form action="" class="col-1 container-flex">
             <div class="dropdown">
-
-
-
-            <div class="dropdown">
-
-
-
-                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    id="type-of-meal">
-                    Type of meal
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Entree</a></li>
-                    <li><a class="dropdown-item" href="#">Side</a></li>
-                    <li><a class="dropdown-item" href="#">Beverage</a></li>
-                    <li><a class="dropdown-item" href="#">Dessert</a></li>
-
-                </ul>
-            </div>
-            <br><br>
-
-
-
-
 
 
             <br><br>
             
-            <label for="new-side">Type of Meal</label>
+            <label for="new-meal-type">Type of Meal</label>
             <input type="text" id="new-meal-type" placeholder="Entree, side or dessert">
 
             <br><br>
 
-            <label for="new-side">Name of Meal</label>
-            <input type="text" id="new-side" placeholder="Name your meal">
+            <label for="new-meal">Name of Meal</label>
+            <input type="text" id="new-meal" placeholder="Name your meal">
             <br><br>
 
-            <label for="new-beverage">Ingredients</label>
 
-
-            <input type="text" id="new-beverage" placeholder="List your ingredients">
+            <label for="new-ingredient">Ingredients</label>
+            <input type="text" id="new-ingredient" placeholder="List your ingredients">
             <br><br>
 
-            <label for="new-dessert">Recipe</label>
-            <input type="text" id="new-dessert" placeholder="Enter recipe here">
-
+            <label for="new-recipe">Recipe</label>
+            <input type="text" id="new-recipe" placeholder="Enter recipe here">
             <br><br>
 
             <button class="submit-meal btn btn-dark">Submit new meal</button>
+            <br><br>
+
+
+
+            <footer class="container-fluid">
+                <div id="footer">What's for Dinner?© 2023</div>
+            </footer>
+        </div>  
         </form>
-        <div id="submitted-meal-container"></div>
-    </div>
-
-
-    <footer class="container-fluid">
-        <div id="footer">What's for Dinner?© 2023</div>
-    </footer>
-
+        <div id="submit-output" class="list" placeholder="Your Recipe Here">
+            <!-- <div id="meal-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close"></span>
+                </div>
+            </div> -->
+        </div>
+    
+    
     <!-- Bootstrap js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
 </body>
 
 

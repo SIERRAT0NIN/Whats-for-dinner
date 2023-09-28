@@ -125,12 +125,16 @@ input {
 
 
 #footer {
-  text-align: center;
+  position: fixed;
+  text-align: left;
+  bottom: 0;
+  width: 100%;
+  height: auto;
 }
 
 
-#footer {
-  text-align: center;
+div#submit-output {
+  float: left;
 }
 
 #foodImg {
