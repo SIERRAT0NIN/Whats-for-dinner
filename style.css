@@ -124,3 +124,7 @@ input {
   border-radius: 3px;
   margin-top: -10px;
 }
+.dropdown-menu {
+  position: relative;
+  display: flex;
+}

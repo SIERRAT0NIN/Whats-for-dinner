@@ -13,12 +13,15 @@ const foodImg = document.querySelector("#food-img");
 const dropdownFoodItems = document.querySelector(".dropdown-food-item");
 const selectedEntree = document.querySelector(".selectedEntree");
 const selectedImage = document.querySelector(".selectedImage");
+const dropdownMenuEntree = document.querySelector(".entree-dropdown-menu");
+const selectedEntreeImage = document.querySelector(".selectedEntreeImage");
+const selectedImg = document.querySelector("#selectedImg");
 // Fetch Request
 const fetchApi = () => {
   fetch(apiUrl + selectedCountry)
     .then((response) => response.json())
     .then((mealData) => renderMeals(mealData))
-    .catch((error) => console.log("There was an error"));
+    .catch((error) => console.log("There wafvbs an error"));
 };
 
 // Create submit event
@@ -73,8 +76,6 @@ dropdownMenu.addEventListener("change", (e) => {
   fetchApi();
 });
 
-const entree = document.querySelector(".entree");
-
 const renderMeals = (mealData) => {
   const meals = mealData.meals;
   meals.forEach((foodItem) => {
@@ -82,16 +83,20 @@ const renderMeals = (mealData) => {
   });
 };
 
+const entree = document.querySelector(".entree");
 const entreeMenu = (foodItem) => {
   const option = document.createElement("option");
-  option.setAttribute("value", foodItem.idMeal);
+  option.setAttribute("value", foodItem.strMealThumb);
+  option.classList.add("selectedEntreeImage");
+  option.setAttribute("id", "selectedImg");
   option.textContent = foodItem.strMeal;
   entree.append(option);
-  renderImages(foodItem);
 };
 
-const renderImages = (foodItem) => {
+entree.addEventListener("change", (e) => {
+  const imgUrl = e.target.value;
   const img = document.createElement("img");
-  img.src = foodItem.strMealThumb;
+  img.src = imgUrl;
+  selectedImage.innerHTML = "";
   selectedImage.append(img);
-};
+});
