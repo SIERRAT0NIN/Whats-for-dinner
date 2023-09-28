@@ -1,6 +1,5 @@
 // Global variables
 
-
 const form = document.querySelector("#new-form");
 const submittedMeal = document.querySelector("#submitted-meal-container");
 const toggleEl = document.querySelector(".dropdown-toggle");
@@ -17,22 +16,14 @@ const selectedImage = document.querySelector(".selectedImage");
 const dropdownMenuEntree = document.querySelector(".entree-dropdown-menu");
 const selectedEntreeImage = document.querySelector(".selectedEntreeImage");
 const selectedImg = document.querySelector("#selectedImg");
-const entree = document.querySelector(".entree");
-
-
-
-
 
 // Fetch Request
 const fetchApi = () => {
   fetch(apiUrl + selectedCountry)
     .then((response) => response.json())
     .then((mealData) => renderMeals(mealData))
-    .catch((error) => console.log("There wafvbs an error"));
+    .catch((error) => console.log("There was an error"));
 };
-
-
-
 
 // Create submit event
 // event needs to point to the form to listen
@@ -40,83 +31,34 @@ const fetchApi = () => {
 // ? where should the submited data end up on page?
 //  may need to append data to a location on the page
 
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // if (toggleEl.style.display === 'none' || toggleEl.style.display === '') {
-    //     toggleEl.style.display = 'block';
-    // } else {
-    //     toggleEl.style.display = 'none;'
-    // }
-    const mealData = mealData(form);
-    const mealObj = {};
-    mealData.forEach((value, key) => {
-        mealObj[key] = value;
-    })
-    sendMealToAPI(mealObj)
-    form.reset();
-});
-const sendMealToAPI = (mealObj => {
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(mealObj),
-    })
-    .then(resp => resp.json())
-    .then(mealArr => console.log(mealArr))
-    .then(mealArr => mealArr.map(mealObj))
-    .catch(err => alert('Cannot Save'))
-});
-
-
-
-
-var selectedCountry = "";
-dropdownMenu.addEventListener("click", (e) => {
-  selectedCountry = e.target.text;
-  console.log(selectedCountry);
-  country.textContent = selectedCountry;
-  fetchApi();
-});
-
-// Render img
-const renderMeals = (mealData) => {
-  mealData.meals.forEach((meal) => {
-    const mealImgUrl = meal.strMealThumb;
-    const mealName = meal.strMeal;
-    img.src = mealImgUrl;
-    listMeals(mealName);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // if (toggleEl.style.display === 'none' || toggleEl.style.display === '') {
+  //     toggleEl.style.display = 'block';
+  // } else {
+  //     toggleEl.style.display = 'none;'
+  // }
+  const mealData = mealData(form);
+  const mealObj = {};
+  mealData.forEach((value, key) => {
+    mealObj[key] = value;
   });
+  sendMealToAPI(mealObj);
+  form.reset();
+});
+const sendMealToAPI = (mealObj) => {
+  fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(mealObj),
+  })
+    .then((resp) => resp.json())
+    .then((mealArr) => console.log(mealArr))
+    .then((mealArr) => mealArr.map(mealObj))
+    .catch((err) => alert("Cannot Save"));
 };
-
-const listMeals = (mealName) => {
-  console.log(mealName);
-
-  dropdownLi.textContent = mealName;
-  dropdownItem.appendChild(dropdownLi);
-
-  const dropdownLi = document.createElement("li");
-  dropdownLi.classList.add("dropdown-item");
-  //   const foodList = (entree.innerHTML = dropdownLi.textContent = mealName);
-  const foodArray = [mealName];
-  foodArray.forEach((food) => {
-    dropdownLi.textContent = food;
-    entree.append(dropdownLi);
-  });
-
-};
-
-
-// Selected country's meals should be displayed into the drop down menu.
-
-// Use the .filter() to filter the sides and dessert. Will need another api for beverages.
-
-// User form input
-
-// submit button
-
 
 // ALBERTO
 let selectedCountry = "";
