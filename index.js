@@ -38,7 +38,7 @@ newForm.addEventListener('submit', (e) => {
 // ! Add modal to submitted meal li
 submittedMeal.addEventListener('mouseover', (e) => {
   const li = document.createElement('li')
-  li.textContent = 
+  li.textContent = meal.name
   const div = document.createElement('div')
   div.id = 'meal-modal'
   div.className = 'modal'
