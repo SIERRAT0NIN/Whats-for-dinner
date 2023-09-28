@@ -1,29 +1,9 @@
 // Global variables
 
 const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=`;
-const foodItems = document.querySelector(".food-items");
-const foodImgDisplay = document.querySelector("#food-img");
-const img = document.createElement("img");
-const dropdownItem = document.querySelector(".dropdown-item");
-const dropdownMenu = document.querySelector(".dropdown-menu");
-const country = document.querySelector(".country");
-const entree = document.querySelector(".entree");
-
-const dropdownLi = document.createElement("li");
 
 
 
-// Fetch Request
-const fetchApi = () => {
-  fetch(apiUrl + selectedCountry)
-    .then((response) => response.json())
-    .then((mealData) => renderMeals(mealData))
-    .catch((error) => console.log("There was an error"));
-};
-
-
-// Helper functions
-// When a country is selected, update the selected-country text content with country's name
 
 
 
@@ -48,10 +28,6 @@ newForm.addEventListener('submit', (e) => {
       const addMealName = e.target['new-meal'].value
       const addNewIng = e.target['new-ingredient'].value
       const addNewRecipe = e.target['new-recipe'].value
-      // console.log(addMealName)
-      // console.log(addNewMealType)
-      // console.log(addNewIng)
-      // console.log(addNewRecipe)
 
       const li = document.createElement('li')
       li.textContent = addMealName
@@ -62,7 +38,7 @@ newForm.addEventListener('submit', (e) => {
 // ! Add modal to submitted meal li
 submittedMeal.addEventListener('mouseover', (e) => {
   const li = document.createElement('li')
-  li.textContent = addMealName
+  li.textContent = 
   const div = document.createElement('div')
   div.id = 'meal-modal'
   div.className = 'modal'
@@ -73,69 +49,4 @@ submittedMeal.addEventListener('mouseover', (e) => {
   
 
 })
-
-// function renderSubmitForm(meal) {
-//   // addMealName.innerHTML = ""
-//   const listLi = document.createElement(li)
-//   listLi.className = 'list-li'
-//   const h3 = document.createElement('h3')
-//   h3.textContent = meal['new-meal']
-//   submittedMeal.appendChild(listLi)
-// }
-
-
-
-// const submitHandler = (e) => {
-//   e.preventDefault()
-//   const userMeal = {
-//     const addNewMealType = e.target['new-meal-type'].value
-//     const addMealName = e.target['new-meal'].value
-//     const addNewIng = e.target['new-ingredient'].value
-//     const addNewRecipe = e.target['new-recipe'].value
-//   }
-//   renderSubmitForm(userMeal)
-//   e.target.reset()
-// }
-
-// newForm.addEventListener('submit', submitHandler)
-//  <!-- anne-branch -->
-
-// !
-var selectedCountry = "";
-dropdownMenu.addEventListener("click", (e) => {
-  selectedCountry = e.target.text;
-  console.log(selectedCountry);
-  country.textContent = selectedCountry;
-  fetchApi();
-});
-
-// // Render img
-const renderMeals = (mealData) => {
-  mealData.meals.forEach((meal) => {
-    const mealImgUrl = meal.strMealThumb;
-    const mealName = meal.strMeal;
-    img.src = mealImgUrl;
-
-    listMeals(mealName);
-  });
-};
-// // Selected country should be updated into the api using `${country} ` at the end of the api
-// const listMeals = (mealName) => {
-//   console.log(mealName);
-
-//   dropdownLi.textContent = mealName;
-//   dropdownItem.appendChild(dropdownLi);
-
-//   const dropdownLi = document.createElement("li");
-//   dropdownLi.classList.add("dropdown-item");
-//   //   const foodList = (entree.innerHTML = dropdownLi.textContent = mealName);
-//   const foodArray = [mealName];
-//   foodArray.forEach((food) => {
-//     dropdownLi.textContent = food;
-//     entree.append(dropdownLi);
-//   });
-
-// };
-// !
-
 
