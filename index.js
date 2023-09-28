@@ -26,21 +26,21 @@ const fetchApi = () => {
 // need to post new data entered by user into the API and onto the page
 // ? where should the submited data end up on page?
 //  may need to append data to a location on the page
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  // if (toggleEl.style.display === 'none' || toggleEl.style.display === '') {
-  //     toggleEl.style.display = 'block';
-  // } else {
-  //     toggleEl.style.display = 'none;'
-  // }
-  const mealData = mealData(form);
-  const mealObj = {};
-  mealData.forEach((value, key) => {
-    mealObj[key] = value;
-  });
-  sendMealToAPI(mealObj);
-  form.reset();
-});
+// form.addEventListener("submit", (e) => {
+// e.preventDefault();
+// if (toggleEl.style.display === 'none' || toggleEl.style.display === '') {
+//     toggleEl.style.display = 'block';
+// } else {
+//     toggleEl.style.display = 'none;'
+// }
+// const mealData = mealData(form);
+// const mealObj = {};
+// mealData.forEach((value, key) => {
+//   mealObj[key] = value;
+// });
+// sendMealToAPI(mealObj);
+// form.reset();
+// });
 // const sendMealToAPI = (mealObj) => {
 //   fetch(apiUrl, {
 //     method: "POST",
@@ -55,42 +55,7 @@ form.addEventListener("submit", (e) => {
 //     .catch((err) => alert("Cannot Save"));
 // };
 
-var selectedCountry = "";
-dropdownMenu.addEventListener("click", (e) => {
-  selectedCountry = e.target.text;
-  country.textContent = selectedCountry;
-  fetchApi();
-});
-
-const entree = document.querySelector(".entree");
-const renderMeals = (mealData) => {
-  const meals = mealData.meals;
-  meals.forEach((foodItem) => {
-    entreeMenu(foodItem);
-    // renderImg(foodItem);
-  });
-};
-const entreeMenu = (foodItem) => {
-  const li = document.createElement("li");
-  li.setAttribute("id", "meal-item");
-  li.textContent = foodItem.strMeal;
-  li.addEventListener("click", () => {
-    selectedImage.innerHTML = "";
-    renderImg(foodItem);
-  });
-
-  entree.appendChild(li);
-};
-const renderImg = (foodItem) => {
-  const img = document.createElement("img");
-  img.setAttribute("id", "meal-item");
-  img.src = foodItem.strMealThumb;
-  selectedImage.appendChild(img);
-};
-
 // };
-
-//  <!-- Alberto-branch -->
 
 // Selected country's meals should be displayed into the drop down menu.
 
@@ -99,4 +64,34 @@ const renderImg = (foodItem) => {
 // User form input
 
 // submit button
-//  <!-- anne-branch -->
+
+// ALBERTO
+let selectedCountry = "";
+
+dropdownMenu.addEventListener("change", (e) => {
+  selectedCountry = e.target.value;
+  fetchApi();
+});
+
+const entree = document.querySelector(".entree");
+
+const renderMeals = (mealData) => {
+  const meals = mealData.meals;
+  meals.forEach((foodItem) => {
+    entreeMenu(foodItem);
+  });
+};
+
+const entreeMenu = (foodItem) => {
+  const option = document.createElement("option");
+  option.setAttribute("value", foodItem.idMeal);
+  option.textContent = foodItem.strMeal;
+  entree.append(option);
+  renderImages(foodItem);
+};
+
+const renderImages = (foodItem) => {
+  const img = document.createElement("img");
+  img.src = foodItem.strMealThumb;
+  selectedImage.append(img);
+};
