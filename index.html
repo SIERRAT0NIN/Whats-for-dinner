@@ -11,21 +11,20 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Javascript -->
 
-    <!-- <script src="key.js"></script> -->
 
-
- <!-- anne-branch -->
-
-<!-- Web page is responsive. The content will adjust according to the screen size, (mobile). -->
 
 
     <script defer src="index.js"></script>
 </head>
-<!-- Web page is reponsive. The content will adjust according to the screen size, (mobile). -->
 
- <!-- anne-branch -->
 
-<!-- "class='container-flex','container-fluid','container' " come from Bootstrap, to make the page responsive. -->
+
+
+
+
+
+
+
 
 
 
@@ -35,142 +34,130 @@
 <body class="container-flex">
     <!-- Header -->
     <div class="container-fluid">
-        <h1 class="header">What's for Dinner?
-            <img src="images/WhatsForDinnerLogo.png" alt="What's for dinner Logo">
+        <h1 class="header" id="header">What's for Dinner?
+            <a href="https://github.com/SIERRAT0NIN/Whats-for-dinner"><img src="images/WhatsForDinnerLogo.png"
+                    alt="What's for dinner Logo"></a>
         </h1>
     </div>
 
     <!-- Dropdown Buttons -->
     <div class="dropdown-group container-fluid">
         <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle country" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Select a country!
-            </button>
-            <ul class="dropdown-menu">
-
-                <li><a class="dropdown-item" href="#">Algerian</a></li>
-                <li><a class="dropdown-item" href="#">American</a></li>
-                <li><a class="dropdown-item" href="#">Argentinian </a></li>
-
-                <li><a class="dropdown-item" href="#">American</a></li>
-
-                <li><a class="dropdown-item" href="#">British </a></li>
-                <li><a class="dropdown-item" href="#">Canadian </a></li>
-                <li><a class="dropdown-item" href="#">Chinese </a></li>
-                <li><a class="dropdown-item" href="#">Croatian </a></li>
-                <li><a class="dropdown-item" href="#">Dutch </a></li>
-                <li><a class="dropdown-item" href="#">Egyptian </a></li>
-                <li><a class="dropdown-item" href="#">Filipino </a></li>
-                <li><a class="dropdown-item" href="#">French </a></li>
-                <li><a class="dropdown-item" href="#">Greek </a></li>
-                <li><a class="dropdown-item" href="#">Indian </a></li>
-                <li><a class="dropdown-item" href="#">Irish </a></li>
-                <li><a class="dropdown-item" href="#">Italian </a></li>
-                <li><a class="dropdown-item" href="#">Jamaican </a></li>
-                <li><a class="dropdown-item" href="#">Japanese </a></li>
-                <li><a class="dropdown-item" href="#">Kenyan </a></li>
-                <li><a class="dropdown-item" href="#">Malaysian </a></li>
-                <li><a class="dropdown-item" href="#">Mexican </a></li>
-                <li><a class="dropdown-item" href="#">Moroccan </a></li>
-                <li><a class="dropdown-item" href="#">Norwegian </a></li>
-                <li><a class="dropdown-item" href="#">Polish </a></li>
-                <li><a class="dropdown-item" href="#">Portuguese </a></li>
-                <li><a class="dropdown-item" href="#">Russian </a></li>
-                <li><a class="dropdown-item" href="#">Saudi Arabian </a></li>
-                <li><a class="dropdown-item" href="#">Slovakian </a></li>
-                <li><a class="dropdown-item" href="#">Spanish </a></li>
-                <li><a class="dropdown-item" href="#">Syrian </a></li>
-                <li><a class="dropdown-item" href="#">Thai </a></li>
-                <li><a class="dropdown-item" href="#">Tunisian </a></li>
-                <li><a class="dropdown-item" href="#">Turkish </a></li>
-                <li><a class="dropdown-item" href="#">Vietnamese </a></li>
-            </ul>
+        
+            <select class="dropdown-menu country show">
+                <option class="dropdown-item" value="">Select a country</option>
+                <option class="dropdown-item" value="American">American</option>
+                <option class="dropdown-item" value="British">British </option>
+                <option class="dropdown-item" value="Canadian">Canadian </option>
+                <option class="dropdown-item" value="Chinese">Chinese </option>
+                <option class="dropdown-item" value="Croatian">Croatian </option>
+                <option class="dropdown-item" value="Dutch">Dutch </option>
+                <option class="dropdown-item" value="Egyptian">Egyptian </option>
+                <option class="dropdown-item" value="Filipino">Filipino </option>
+                <option class="dropdown-item" value="French">French </option>
+                <option class="dropdown-item" value="Greek">Greek </option>
+                <option class="dropdown-item" value="Indian">Indian </option>
+                <option class="dropdown-item" value="Irish">Irish </option>
+                <option class="dropdown-item" value="Italian">Italian </option>
+                <option class="dropdown-item" value="Jamaican">Jamaican </option>
+                <option class="dropdown-item" value="Japanese">Japanese </option>
+                <option class="dropdown-item" value="Kenyan">Kenyan </option>
+                <option class="dropdown-item" value="Malaysian">Malaysian </option>
+                <option class="dropdown-item" value="Mexican">Mexican </option>
+                <option class="dropdown-item" value="Moroccan">Moroccan </option>
+                <option class="dropdown-item" value="Norwegian">Norwegian </option>
+                <option class="dropdown-item" value="Polish">Polish </option>
+                <option class="dropdown-item" value="Portuguese">Portuguese </option>
+                <option class="dropdown-item" value="Russian">Russian </option>
+                <option class="dropdown-item" value="Saudi Arabian">Saudi Arabian </option>
+                <option class="dropdown-item" value="Slovakian">Slovakian </option>
+                <option class="dropdown-item" value="Spanish">Spanish </option>
+                <option class="dropdown-item" value="Syrian">Syrian </option>
+                <option class="dropdown-item" value="Thai">Thai </option>
+                <option class="dropdown-item" value="Tunisian">Tunisian </option>
+                <option class="dropdown-item" value="Turkish">Turkish </option>
+                <option class="dropdown-item" value="Vietnamese">Vietnamese </option>
+            </select>
+        </div>
+        <div class="dropdown">
+            <select class="entree dropdown-menu show">
+                <option class="dropdown-item  selectedEntreeImage dropdown-menu" value="">Select a meal</option>
+            </select>
         </div>
         <div class="dropdown">
 
-            <button class="btn btn-light dropdown-toggle" id=dropentree type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Entree
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item entree" href="#">TEST</a></li>
-
-            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Entree
-            </button>
-            <ul class="dropdown-menu">
-                <li class="dropdown-item entree"></li>
-
-
-            </ul>
+            <select class="dropdown-menu show">
+                <option class="dropdown-item side" value="">Select a side</option>
+            </select>
         </div>
         <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" id=dropsides type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Sides
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Sides 1</a></li>
-                <li><a class="dropdown-item" href="#">Sides 2</a></li>
-                <li><a class="dropdown-item" href="#">Sides 3</a></li>
-            </ul>
+
+            <select class="dropdown-menu">
+                <option class="dropdown-item beverage" value="">Select a beverage</option>
+
+            </select>
         </div>
         <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" id=dropbev type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Beverage
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Beverage 1</a></li>
-                <li><a class="dropdown-item" href="#">Beverage 2</a></li>
-                <li><a class="dropdown-item" href="#">Beverage 3</a></li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dessert
-            </button>
-            <ul class="dropdown-menu">
-                <li id="dropdessert"><a class="dropdown-item" href="#">Dessert 1</a></li>
-                <li><a class="dropdown-item" href="#">Dessert 2</a></li>
-                <li><a class="dropdown-item" href="#">Dessert 3</a></li>
-            </ul>
+
+            <select class="dropdown-menu show">
+                <option class="dropdown-item dessert" value="">Select a dessert</option>
+
+            </select>
+
         </div>
     </div>
 
 
     <!-- Food pics -->
-    <div class="img-group container food-pic shadow">
-        <div class="row ">
-            <div class="food-items col-md-4" id="food-img"></div>
-            <div class="food-items col-md-4" id="food-img"></div>
-            <div class="food-items col-md-4" id="food-img"></div>
-            <div class="food-items col-md-4" id="food-img"></div>
+    <div class="img-group container-flex food-pic shadow row">
+
+        <div class="selectedImage col-md-4">
+            <img class="food-items" src="" alt="">
+
         </div>
+        <div class="food-items selectedImage col-md-4">
+
+        </div>
+        <div class="food-items selectedImage col-md-4">
+
+        </div>
+        <div class="food-items selectedImage col-md-4">
+
+        </div>
+
+
     </div>
 
 
     <!-- Add new meal form -->
     <div class="form-group container-flex">
+
         <form action="" class="col-1 container-flex">
 
-            <!-- <div class="dropdown"> -->
 
- <!-- anne-branch -->
+
+
+
+
+
+
 
         <form id="new-form" action="" class="col-1 container-flex">
         <form action="" class="col-1 container-flex">
             <div class="dropdown">
+
+
             <br><br>
             
             <label for="new-meal-type">Type of Meal</label>
             <input type="text" id="new-meal-type" placeholder="Entree, side or dessert">
+
             <br><br>
 
             <label for="new-meal">Name of Meal</label>
             <input type="text" id="new-meal" placeholder="Name your meal">
             <br><br>
+
 
             <label for="new-ingredient">Ingredients</label>
             <input type="text" id="new-ingredient" placeholder="List your ingredients">
@@ -182,6 +169,8 @@
 
             <button class="submit-meal btn btn-dark">Submit new meal</button>
             <br><br>
+
+
 
             <footer class="container-fluid">
                 <div id="footer">What's for Dinner?© 2023</div>
@@ -203,4 +192,9 @@
         crossorigin="anonymous"></script> -->
 </body>
 
+
+
 </html>
+
+
+
