@@ -101,35 +101,33 @@
         <form action="" class="col-1 container-flex" id="new-form">
 
             <div class="dropdown">
-                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                <!-- <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
                     id="type-of-meal">
                     Type of meal
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Entree</a></li>
-                    <li><a class="dropdown-item" href="#">Side</a></li>
-                    <li><a class="dropdown-item" href="#">Beverage</a></li>
-                    <li><a class="dropdown-item" href="#">Dessert</a></li>
-                </ul>
+                </button> -->
+                <select class="dropdown-menu show">
+                    <option>Entree</option>
+                    <option>Side</option>
+                    <option>Beverage</option>
+                    <option>Dessert</option>
+                </select>
             </div>
             <br><br>
-
             <label for="new-side">Name of meal</label>
-
             <input type="text" id="new-side" placeholder="Enter name of meal">
             <br><br>
-
-
             <label for="new-beverage">Ingredients</label>
             <input type="text" id="new-beverage" placeholder="Enter ingredients">
             <br><br>
-
             <label for="new-dessert">Recipe</label>
-
             <input type="text" id="new-dessert" placeholder="Enter recipe">
             <br><br>
             <button class="submit-meal btn btn-dark">Submit new meal</button>
         </form>
+    </div>
+
+    <div>
+        <ul id="submitted-meal-container"></ul>
     </div>
 
 

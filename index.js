@@ -1,5 +1,4 @@
 // Global variables
-
 const form = document.querySelector("#new-form");
 const submittedMeal = document.querySelector("#submitted-meal-container");
 const toggleEl = document.querySelector(".dropdown-toggle");
@@ -16,49 +15,55 @@ const selectedImage = document.querySelector(".selectedImage");
 const dropdownMenuEntree = document.querySelector(".entree-dropdown-menu");
 const selectedEntreeImage = document.querySelector(".selectedEntreeImage");
 const selectedImg = document.querySelector("#selectedImg");
-
+const entree = document.querySelector(".entree");
+const newMealType = document.querySelector("#new-form > div > select");
 // Fetch Request
 const fetchApi = () => {
   fetch(apiUrl + selectedCountry)
     .then((response) => response.json())
     .then((mealData) => renderMeals(mealData))
-    .catch((error) => console.log("There was an error"));
+    .catch((error) => console.log("There wafvbs an error"));
 };
 
-// Create submit event
+const newForm = document.querySelector(".col-1");
+
+// const newMealType = document.querySelector("#new-meal-type");
+const newMealName = document.querySelector("new-meal");
+const newIngredients = document.querySelector("new-ingredients");
+const newRecipe = document.querySelector("new-recipe");
+// const mealModal = document.querySelector('#meal-modal');
+
+//! Create submit event
 // event needs to point to the form to listen
 // need to post new data entered by user into the API and onto the page
-// ? where should the submited data end up on page?
-//  may need to append data to a location on the page
-
-form.addEventListener("submit", (e) => {
+// ? where should the submited data end up on page? !!! It should go into the Countries dropdown as an 'li'
+//  may need to append data to a location on the page ^^
+newForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  // if (toggleEl.style.display === 'none' || toggleEl.style.display === '') {
-  //     toggleEl.style.display = 'block';
-  // } else {
-  //     toggleEl.style.display = 'none;'
-  // }
-  const mealData = mealData(form);
-  const mealObj = {};
-  mealData.forEach((value, key) => {
-    mealObj[key] = value;
-  });
-  sendMealToAPI(mealObj);
-  form.reset();
+  // debugger;
+  const addNewMealType = newMealType.value;
+  const addMealName = e.target["new-side"].value;
+  const addNewIng = e.target["new-beverage"].value;
+  const addNewRecipe = e.target["new-dessert"].value;
+
+  const li = document.createElement("li");
+  li.textContent = addMealName;
+  submittedMeal.append(li);
+
+  newForm.reset();
 });
-const sendMealToAPI = (mealObj) => {
-  fetch(apiUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(mealObj),
-  })
-    .then((resp) => resp.json())
-    .then((mealArr) => console.log(mealArr))
-    .then((mealArr) => mealArr.map(mealObj))
-    .catch((err) => alert("Cannot Save"));
-};
+// ! Add modal to submitted meal li
+// submittedMeal.addEventListener("mouseover", (e) => {
+//   const li = document.createElement("li");
+//   li.textContent = meal.name;
+//   const div = document.createElement("div");
+//   div.id = "meal-modal";
+//   div.className = "modal";
+//   const div2 = document.createElement("div");
+//   div2.className = "modal-content";
+//   const span = document.createElement("span");
+//   span.className = "close";
+// });
 
 // ALBERTO
 let selectedCountry = "";
@@ -75,7 +80,6 @@ const renderMeals = (mealData) => {
   });
 };
 
-const entree = document.querySelector(".entree");
 const entreeMenu = (foodItem) => {
   const option = document.createElement("option");
   option.setAttribute("value", foodItem.strMealThumb);
