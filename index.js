@@ -41,34 +41,7 @@ const fetchApi = () => {
 //  may need to append data to a location on the page
 
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // if (toggleEl.style.display === 'none' || toggleEl.style.display === '') {
-    //     toggleEl.style.display = 'block';
-    // } else {
-    //     toggleEl.style.display = 'none;'
-    // }
-    const mealData = mealData(form);
-    const mealObj = {};
-    mealData.forEach((value, key) => {
-        mealObj[key] = value;
-    })
-    sendMealToAPI(mealObj)
-    form.reset();
-});
-const sendMealToAPI = (mealObj => {
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(mealObj),
-    })
-    .then(resp => resp.json())
-    .then(mealArr => console.log(mealArr))
-    .then(mealArr => mealArr.map(mealObj))
-    .catch(err => alert('Cannot Save'))
-});
+
 
 
 
