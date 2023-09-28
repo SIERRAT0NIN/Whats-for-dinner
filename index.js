@@ -33,6 +33,7 @@ const newMealType = document.querySelector('#new-meal-type');
 const newMealName = document.querySelector('new-meal');
 const newIngredients = document.querySelector('new-ingredients');
 const newRecipe = document.querySelector('new-recipe');
+// const mealModal = document.querySelector('#meal-modal');
 
 
 //! Create submit event
@@ -58,7 +59,21 @@ newForm.addEventListener('submit', (e) => {
       
     newForm.reset()
 });    
-// ! I need the submit to post the user information into the Country dropdown-menu list (li)
+// ! Add modal to submitted meal li
+submittedMeal.addEventListener('mouseover', (e) => {
+  const li = document.createElement('li')
+  li.textContent = addMealName
+  const div = document.createElement('div')
+  div.id = 'meal-modal'
+  div.className = 'modal'
+  const div2 = document.createElement('div')
+  div2.className = 'modal-content'
+  const span = document.createElement('span')
+  span.className = 'close'
+  
+
+})
+
 // function renderSubmitForm(meal) {
 //   // addMealName.innerHTML = ""
 //   const listLi = document.createElement(li)
@@ -123,80 +138,4 @@ const renderMeals = (mealData) => {
 // };
 // !
 
-// Selected country's meals should be displayed into the drop down menu.
 
-// Use the .filter() to filter the sides and dessert. Will need another api for beverages.
-
-// User form input
-
-// submit button
-
-// !
-
-// document.querySelector("#dropentree").addEventListener(`mouseover`,
-//   function () {
-//     //open modal
-//     console.log("Modal")
-//   })
-
-// document.querySelector("#dropbev").addEventListener(`mouseover`,
-//   function () {
-//     //open modal
-//     console.log("Modal")
-//   })
-
-// // }
-
-// document.querySelector("#dropsides").addEventListener(`mouseover`,
-//   function () {
-//     //open modal
-//     console.log("Modal")
-//   })
-// // }
-
-// document.querySelector("#dropdessert").addEventListener(`mouseover`,
-//   function () {
-//     //open modal
-//     console.log("Modal")
-//   })
-// !
-
-/*
-class hidden
-hover over img
-event listener for mouseover
-remove hidden class
-
-<div id="modal" class="hidden">
-openModalBtn.addEventListener("mouseover", openModal);
- <h...> "FOOD RECIPE" </h...>
-    <p id="modal-message"></p>
-
-const openModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-
-const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
-
-overlay.addEventListener("click", closeModal);
-document.addEventListener("keydown");
-
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    modalClose();
-  }
-});
-
-
-
-closeModalBtn.addEventListener("mouseover", closeModal);
-
-</d>
-*/
-
-  
