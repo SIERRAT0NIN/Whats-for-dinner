@@ -16,7 +16,7 @@ const dropdownMenuEntree = document.querySelector(".entree-dropdown-menu");
 const selectedEntreeImage = document.querySelector(".selectedEntreeImage");
 const selectedImg = document.querySelector("#selectedImg");
 const entree = document.querySelector(".entree");
-
+const newMealType = document.querySelector("#new-form > div > select");
 // Fetch Request
 const fetchApi = () => {
   fetch(apiUrl + selectedCountry)
@@ -28,35 +28,37 @@ const fetchApi = () => {
 
 
 
-
-// ANNE
 const newForm = document.querySelector('.col-1');
 const submitNewMeal = document.querySelector('#submit-output');
-const newMealType = document.querySelector('#new-meal-type');
+// const newMealType = document.querySelector('#new-meal-type');
 const newMealName = document.querySelector('new-meal');
 const newIngredients = document.querySelector('new-ingredients');
 const newRecipe = document.querySelector('new-recipe');
 // const mealModal = document.querySelector('#meal-modal');
 
-
 //! Create submit event
-// need to submit new data entered by user into the API and onto the page
+// event needs to point to the form to listen
+// need to post new data entered by user into the API and onto the page
+// ? where should the submited data end up on page? !!! It should go into the Countries dropdown as an 'li'
+//  may need to append data to a location on the page ^^
+newForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // debugger;
+  const addNewMealType = newMealType.value;
+  const addMealName = e.target["new-side"].value;
+  const addNewIng = e.target["new-beverage"].value;
+  const addNewRecipe = e.target["new-dessert"].value;
 
-newForm.addEventListener('submit', (e) => {
-    e.preventDefault()
+  const li = document.createElement("li");
+  li.textContent = addMealName;
+  submitNewMeal.append(li);
 
-      const addNewMealType = e.target['new-meal-type'].value
-      const addMealName = e.target['new-meal'].value
-      const addNewIng = e.target['new-ingredient'].value
-      const addNewRecipe = e.target['new-recipe'].value
-      const li = document.createElement('li')
-      li.textContent = addMealName
-      submitNewMeal.append(li)
-      newForm.reset()
-}); 
+  newForm.reset();
+});
+
 
 // ! Add modal to submitted meal li
-submitNewMeal.addEventListener('mouseover', (event) => {
+submittedMeal.addEventListener('mouseover', () => {
   const li = document.createElement('li')
   li.textContent = 'meal-name'
   const div = document.createElement('div')
@@ -66,18 +68,9 @@ submitNewMeal.addEventListener('mouseover', (event) => {
   div2.className = 'modal-content'
   const span = document.createElement('span')
   span.className = 'close'
-  if (event.target == modal) {
-    debugger
-    modal.style.display = 'none'
-  }
+  // submittedMeal.appendChild(li)
+
 })
-
-
-
-
-
-
-
 
 
 // ALBERTO
@@ -94,7 +87,6 @@ const renderMeals = (mealData) => {
     entreeMenu(foodItem);
   });
 };
-
 
 const entreeMenu = (foodItem) => {
   const option = document.createElement("option");

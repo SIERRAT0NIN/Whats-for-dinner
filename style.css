@@ -125,8 +125,8 @@ input {
 
 
 #footer {
-  position: fixed;
-  text-align: left;
+  position: inherit;
+  text-align: center;
   bottom: 0;
   width: 100%;
   height: auto;

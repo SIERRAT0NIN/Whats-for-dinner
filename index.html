@@ -11,9 +11,6 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Javascript -->
 
-
-
-
     <script defer src="index.js"></script>
 </head>
 
@@ -29,7 +26,6 @@
     <!-- Dropdown Buttons -->
     <div class="dropdown-group container-fluid">
         <div class="dropdown">
-        
             <select class="dropdown-menu country show">
                 <option class="dropdown-item" value="">Select a country</option>
                 <option class="dropdown-item" value="American">American</option>
@@ -71,25 +67,14 @@
             </select>
         </div>
         <div class="dropdown">
-
             <select class="dropdown-menu show">
                 <option class="dropdown-item side" value="">Select a side</option>
             </select>
         </div>
         <div class="dropdown">
-
-            <select class="dropdown-menu">
-                <option class="dropdown-item beverage" value="">Select a beverage</option>
-
-            </select>
-        </div>
-        <div class="dropdown">
-
             <select class="dropdown-menu show">
                 <option class="dropdown-item dessert" value="">Select a dessert</option>
-
             </select>
-
         </div>
     </div>
 
@@ -99,16 +84,12 @@
 
         <div class="selectedImage col-md-4">
             <img class="food-items" src="" alt="">
-
+        </div>
+        <div class="food-items selectedImage side col-md-4">
         </div>
         <div class="food-items selectedImage col-md-4">
-
         </div>
         <div class="food-items selectedImage col-md-4">
-
-        </div>
-        <div class="food-items selectedImage col-md-4">
-
         </div>
 
 
@@ -118,31 +99,38 @@
     <!-- Add new meal form -->
     <div class="form-group container-flex">
 
-        <form action="" class="col-1 container-flex">
+        <form action="" class="col-1 container-flex" id="new-form">
 
-        <form id="new-form" action="" class="col-1 container-flex">
-        <form action="" class="col-1 container-flex">
             <div class="dropdown">
+                <!-- <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    id="type-of-meal">
+                    Type of meal
+                </button> -->
+                <select class="dropdown-menu show">
+                    <option>Entree</option>
+                    <option>Side</option>
+                    <option>Beverage</option>
+                    <option>Dessert</option>
+                </select>
+            </div>
             <br><br>
-            
-            <label for="new-meal-type">Type of Meal</label>
-            <input type="text" id="new-meal-type" placeholder="Entree, side or dessert">
+            <label for="new-side">Name of meal</label>
+            <input type="text" id="new-side" placeholder="Enter name of meal">
+            <br><br>
+            <label for="new-beverage">Ingredients</label>
+            <input type="text" id="new-beverage" placeholder="Enter ingredients">
+            <br><br>
+            <label for="new-dessert">Recipe</label>
+            <input type="text" id="new-dessert" placeholder="Enter recipe">
 
             <br><br>
-
-            <label for="new-meal">Name of Meal</label>
-            <input type="text" id="new-meal" placeholder="Name your meal">
-            <br><br>
-
-            <label for="new-ingredient">Ingredients</label>
-            <input type="text" id="new-ingredient" placeholder="List your ingredients">
-            <br><br>
-
-            <label for="new-recipe">Recipe</label>
-            <input type="text" id="new-recipe" placeholder="Enter recipe here">
-            <br><br>
-
             <button class="submit-meal btn btn-dark">Submit new meal</button>
+        </form>
+    </div>
+
+    <div>
+        <ul id="submitted-meal-container"></ul>
+    </div>
             <br><br>
 
             <footer class="container-fluid">
@@ -166,8 +154,4 @@
 </body>
 
 
-
 </html>
-
-
-
