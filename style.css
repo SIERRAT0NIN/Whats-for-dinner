@@ -25,6 +25,11 @@ label {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
 }
+option {
+  text-align: center;
+  transform: translateX(20%);
+  background-color: black;
+}
 
 form {
   display: block;
@@ -76,20 +81,28 @@ input {
   }
 }
 
-.dropdown-group {
+.drop-down-btn {
   width: 100%;
-  display: flex;
+  /* background-color: black; */
+  padding: 3%;
   justify-content: space-evenly;
-  margin-top: -15px;
-  padding: 20px 0;
+  display: flex;
+  margin-left: 25%;
+  margin-right: 25%;
+  overflow: hidden;
+  margin-top: -20px;
+  margin-bottom: -10px;
+  position: relative;
 }
-
+.dropdown-menu {
+  margin-bottom: 10px;
+}
 
 .dropdown-item {
   display: list-item;
 }
 .form-group {
-  width:100%;
+  width: 100%;
   padding-left: 37%;
   display: flex;
   justify-content: space-between;
@@ -117,6 +130,10 @@ input {
 
 }
 
+#submission-list {
+  display: contents;
+}
+
 
 
 
@@ -127,7 +144,6 @@ input {
   width: 100%;
   height: auto;
 }
-
 
 div#submit-output {
   float: left;
@@ -149,7 +165,19 @@ div#submit-output {
   border-radius: 3px;
   margin-top: -10px;
 }
-.dropdown-menu {
+/* .dropdown-menu {
+} */
+.food-items {
+  justify-content: center;
+
+  position: relative;
+  display: none;
+  width: 100;
+  height: auto;
+}
+#dish-img {
+  justify-content: center;
+  display: block;
   position: relative;
   display: flex;
 }
