@@ -10,7 +10,7 @@
 img {
   height: 100px;
   width: 150px;
-  border: 3px solid black;
+  border: black 10px;
   border-radius: 20px;
   margin: 0px auto;
   display: block;
@@ -54,18 +54,20 @@ input {
   padding: 20px;
   color: #fff;
   border-radius: 10px;
+  /* position: fixed; */
 }
 
 .header img {
   border: none;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  text-align: left;
+  /* text-align: left; */
   font-family: "Croissant One", cursive;
   background-size: contain;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 0.7;
   position: fixed;
-  transform: translateY(-80px);
+  margin-top: -80px;
+  transform: translateX(-20px);
 }
 
 @media (max-width: 575.98px) {
@@ -87,11 +89,6 @@ input {
   display: list-item;
 }
 
-
-.dropdown-item {
-  display: list-item;
-}
-
 .form-group {
   width: 100%;
   padding-left: 37%;
@@ -100,8 +97,8 @@ input {
   align-self: auto;
 }
 
-.food-pic {
-  display: contents;
+#foodImg {
+  height: auto;
 }
 
 .submit-meal {
@@ -129,18 +126,23 @@ input {
 
 
 #footer {
-  text-align: center;
+  position: fixed;
+  text-align: left;
+  bottom: 0;
+  width: 100%;
+  height: auto;
 }
 
 
-#footer {
-  text-align: center;
+div#submit-output {
+  float: left;
 }
 
 #foodImg {
   width: 14rem;
   height: 14rem;
 }
+
 
 .modal {
   display: none;
@@ -162,4 +164,22 @@ input {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.row {
+  width: 100%;
+}
+
+#meal-item {
+  display: list-item;
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 3px;
+  margin-top: -10px;
+}
+
+.dropdown-menu {
+  position: relative;
+  display: flex;
 }

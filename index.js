@@ -1,27 +1,27 @@
 // Global variables
 
-
-
-
 const form = document.querySelector('#new-form');
-
 const submittedMeal = document.querySelector('#submitted-meal-container');
 const toggleEl = document.querySelector('.dropdown-toggle')
-
-
-
 const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=`;
 const foodItems = document.querySelector(".food-items");
 const foodImgDisplay = document.querySelector("#food-img");
-const img = document.createElement("img");
 const dropdownItem = document.querySelector(".dropdown-item");
 const dropdownMenu = document.querySelector(".dropdown-menu");
 const country = document.querySelector(".country");
+const foodImg = document.querySelector("#food-img");
+const dropdownFoodItems = document.querySelector(".dropdown-food-item");
+const selectedEntree = document.querySelector(".selectedEntree");
+const selectedImage = document.querySelector(".selectedImage");
+const dropdownMenuEntree = document.querySelector(".entree-dropdown-menu");
+const selectedEntreeImage = document.querySelector(".selectedEntreeImage");
+const selectedImg = document.querySelector("#selectedImg");
 const entree = document.querySelector(".entree");
+
 
 const dropdownLi = document.createElement("li");
 
-//MODAL T#ESTINGGGGGGGGGG START
+//MODAL TESTING START
 
 //image.addEventListener(`click`, (e) => console.log(e.target))
 
@@ -53,20 +53,24 @@ image.addEventListener(`click`, () => foodImgDisplay(mealData))
 
 
 */
-//MODAL TESTINGGGGGGGG END
+//MODAL TESTING END
 
 
+
+const newMealType = document.querySelector("#new-form > div > select");
+aec09233fc0216a7711c9fe9dbae2409b094c3
 // Fetch Request
 const fetchApi = () => {
   fetch(apiUrl + selectedCountry)
     .then((response) => response.json())
     .then((mealData) => renderMeals(mealData))
-    .catch((error) => console.log("There was an error"));
+    .catch((error) => console.log("There wafvbs an error"));
 };
 
 
-// Helper functions
-// When a country is selected, update the selected-country text content with country's name
+// const newMealType = document.querySelector("#new-meal-type");
+// const mealModal = document.querySelector('#meal-modal');
+
 
 
 
@@ -117,118 +121,94 @@ const fetchApi = () => {
 
 
 
+const newForm = document.querySelector('.col-1');
+// const submittedMeal = document.querySelector('#submit-output');
+const newMealName = document.querySelector('new-meal');
+const newIngredients = document.querySelector('new-ingredients');
+const newRecipe = document.querySelector('new-recipe');
+// const mealModal = document.querySelector('#meal-modal');
 
-var selectedCountry = "";
-dropdownMenu.addEventListener("click", (e) => {
-  selectedCountry = e.target.text;
-  console.log(selectedCountry);
-  country.textContent = selectedCountry;
+//! Create submit event
+// event needs to point to the form to listen
+// need to post new data entered by user into the API and onto the page
+// ? where should the submited data end up on page? !!! It should go into the Countries dropdown as an 'li'
+//  may need to append data to a location on the page ^^
+newForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const addNewMealType = newMealType.value;
+  const addMealName = e.target["new-side"].value;
+  const addNewIng = e.target["new-beverage"].value;
+  const addNewRecipe = e.target["new-dessert"].value;
+
+  const li = document.createElement("li");
+  li.textContent = addMealName;
+  submittedMeal.append(li);
+
+  newForm.reset();
+});
+// ! Add modal to submitted meal li
+// submittedMeal.addEventListener("mouseover", (e) => {
+//   const li = document.createElement("li");
+//   li.textContent = meal.name;
+//   const div = document.createElement("div");
+//   div.id = "meal-modal";
+//   div.className = "modal";
+//   const div2 = document.createElement("div");
+//   div2.className = "modal-content";
+//   const span = document.createElement("span");
+//   span.className = "close";
+// });
+
+// ! Add modal to submitted meal li
+submittedMeal.addEventListener('mouseover', (e) => {
+  const li = document.createElement('li')
+  li.textContent = meal.name
+  const div = document.createElement('div')
+  div.id = 'meal-modal'
+  div.className = 'modal'
+  const div2 = document.createElement('div')
+  div2.className = 'modal-content'
+  const span = document.createElement('span')
+  span.className = 'close'
+
+
+})
+
+
+
+// ALBERTO
+let selectedCountry = "";
+
+dropdownMenu.addEventListener("change", (e) => {
+  selectedCountry = e.target.value;
   fetchApi();
 });
 
-// Render img
 const renderMeals = (mealData) => {
-  mealData.meals.forEach((meal) => {
-    const mealImgUrl = meal.strMealThumb;
-    const mealName = meal.strMeal;
-    img.src = mealImgUrl;
-
-
-
-
-    listMeals(mealName);
+  const meals = mealData.meals;
+  meals.forEach((foodItem) => {
+    entreeMenu(foodItem);
   });
 };
-// Selected country should be updated into the api using `${country} ` at the end of the api
-const listMeals = (mealName) => {
-  console.log(mealName);
 
-  dropdownLi.textContent = mealName;
-  dropdownItem.appendChild(dropdownLi);
-
-  const dropdownLi = document.createElement("li");
-  dropdownLi.classList.add("dropdown-item");
-  //   const foodList = (entree.innerHTML = dropdownLi.textContent = mealName);
-  const foodArray = [mealName];
-  foodArray.forEach((food) => {
-    dropdownLi.textContent = food;
-    entree.append(dropdownLi);
-  });
-
+const entreeMenu = (foodItem) => {
+  const option = document.createElement("option");
+  option.setAttribute("value", foodItem.strMealThumb);
+  option.classList.add("selectedEntreeImage");
+  option.setAttribute("id", "selectedImg");
+  option.textContent = foodItem.strMeal;
+  entree.append(option);
 };
 
-// Selected country's meals should be displayed into the drop down menu.
-
-// Use the .filter() to filter the sides and dessert. Will need another api for beverages.
-
-// User form input
-
-// submit button
-
-
-
-document.querySelector("#dropentree").addEventListener(`mouseover`,
-  function () {
-    //open modal
-    console.log("Modal")
-  })
-
-document.querySelector("#dropbev").addEventListener(`mouseover`,
-  function () {
-    //open modal
-    console.log("Modal")
-  })
-
-// }
-
-document.querySelector("#dropsides").addEventListener(`mouseover`,
-  function () {
-    //open modal
-    console.log("Modal")
-  })
-// }
-
-document.querySelector("#dropdessert").addEventListener(`mouseover`,
-  function () {
-    //open modal
-    console.log("Modal")
-  })
-
-
-/*
-class hidden
-hover over img
-event listener for mouseover
-remove hidden class
-
-<div id="modal" class="hidden">
-openModalBtn.addEventListener("mouseover", openModal);
- <h...> "FOOD RECIPE" </h...>
-    <p id="modal-message"></p>
-
-const openModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-
-const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
-
-overlay.addEventListener("click", closeModal);
-document.addEventListener("keydown");
-
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    modalClose();
-  }
+entree.addEventListener("change", (e) => {
+  const imgUrl = e.target.value;
+  const img = document.createElement("img");
+  img.src = imgUrl;
+  selectedImage.innerHTML = "";
+  selectedImage.append(img);
 });
 
 
 
-closeModalBtn.addEventListener("mouseover", closeModal);
 
-</d>
-*/
+// closeModalBtn.addEventListener("mouseover", closeModal);
