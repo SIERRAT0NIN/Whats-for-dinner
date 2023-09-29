@@ -21,6 +21,13 @@ const newMealName = document.querySelector("new-meal");
 const newIngredients = document.querySelector("new-ingredients");
 const newRecipe = document.querySelector("new-recipe");
 const mealModal = document.querySelector("#meal-modal");
+const submitList = document.querySelector('#submission-list')
+
+const modal = document.getElementById("myModal");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const modalIng = document.getElementById("modalIng");
+const modalRec = document.querySelector('#modalRecipe')
+const modalHeader = document.querySelector('.meal-name')
 
 // Fetch Request
 const fetchApi = () => {
@@ -32,31 +39,51 @@ const fetchApi = () => {
 
 newForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  // debugger;
-  const addNewMealType = newMealType.value;
+ 
   const addMealName = e.target["new-side"].value;
   const addNewIng = e.target["new-beverage"].value;
   const addNewRecipe = e.target["new-dessert"].value;
 
-  const li = document.createElement("li");
+  let li = document.createElement("li");
   li.textContent = addMealName;
-  submittedMeal.append(li);
-
+  let newIngP = document.createElement('p')
+  newIngP.textContent = addNewIng
+  let newRecP = document.createElement('p')
+  newRecP.textContent = addNewRecipe
+  console.log(li)
+  const modalBtn = document.createElement('button')
+  modalBtn.setAttribute('id', 'submission-list')
+  modalBtn.textContent = submitList
+  
+  // Function to open the modal
+  function openModal(event) {
+    modalIng.textContent = ""
+    console.log(event.target)
+    modalIng.textContent = addNewIng;
+    modal.classList.add("active");
+  }
+  submittedMeal.addEventListener("mouseover", openModal)
+  
+  // submitList.append(modalBtn)
+  modalHeader.append(addMealName)
+  modalIng.append(newIngP)
+  modalRec.append(newRecP)
+  submittedMeal.appendChild(li)
   newForm.reset();
 });
+// Add mouseover event listener to each li element
 
-// ! Add modal to submitted meal li
-submittedMeal.addEventListener("mouseover", (e) => {
-  const li = document.createElement("li");
-  li.textContent = meal.name;
-  const div = document.createElement("div");
-  div.id = "meal-modal";
-  div.className = "modal";
-  const div2 = document.createElement("div");
-  div2.className = "modal-content";
-  const span = document.createElement("span");
-  span.className = "close";
+
+// Close the modal when the close button or overlay is clicked
+closeModalBtn.addEventListener("click", () => {
+  modal.classList.remove("active");
 });
+
+
+
+
+
+
 
 // ALBERTO
 let selectedCountry = "";
