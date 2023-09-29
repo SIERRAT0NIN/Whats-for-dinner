@@ -24,7 +24,7 @@ const newRecipe = document.querySelector("new-recipe");
 const mealModal = document.querySelector("#meal-modal");
 const submitList = document.querySelector('#submission-list')
 
-const modal = document.getElementById("myModal");
+const aModal = document.getElementById("anneModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const modalIng = document.getElementById("modalIng");
 const modalRec = document.querySelector('#modalRecipe')
@@ -61,7 +61,7 @@ newForm.addEventListener("submit", (e) => {
     modalIng.textContent = ""
     console.log(event.target)
     modalIng.textContent = addNewIng;
-    modal.classList.add("active");
+    aModal.classList.add("active");
   }
   submittedMeal.addEventListener("mouseover", openModal)
   
@@ -77,7 +77,7 @@ newForm.addEventListener("submit", (e) => {
 
 // Close the modal when the close button or overlay is clicked
 closeModalBtn.addEventListener("click", () => {
-  modal.classList.remove("active");
+  aModal.classList.remove("active");
 });
 
 
