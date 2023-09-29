@@ -82,6 +82,7 @@ input {
 select {
   width: auto;
 }
+
 .dropdown-menu {
   width: auto;
   background-color: black;
@@ -90,6 +91,9 @@ select {
   justify-content: center;
   align-items: center;
 }
+
+
+
 .selectors {
   margin-top: -20px;
   padding-top: 20px;
@@ -103,6 +107,7 @@ select {
 .dropdown-item {
   display: list-item;
 }
+
 .form-group {
   width: 100%;
   padding-left: 37%;
@@ -158,6 +163,7 @@ div#submit-output {
   width: 14rem;
   height: 14rem;
 }
+
 .row {
   width: 100%;
 }
@@ -170,6 +176,7 @@ div#submit-output {
   border-radius: 3px;
   margin-top: -10px;
 }
+
 /* .dropdown-menu {
 } */
 .food-items {
@@ -180,6 +187,7 @@ div#submit-output {
   width: 100;
   height: auto;
 }
+
 #dish-img {
   justify-content: center;
   display: block;
@@ -212,6 +220,53 @@ div#submit-output {
   text-align: center;
 }
 
+
+.description {
+  width: 120%;
+  margin-top: -10px;
+  padding-top: 10px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+p {
+  width: 500px;
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  z-index: 1;
+  /* Ensure it's on top of other elements */
+}
+
+#myModal {
+  display: none;
+}
+
+/* Style for the modal container */
+.modal-content {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+
+
 /* Style for the close button */
 .close {
   position: absolute;
@@ -226,6 +281,8 @@ div#submit-output {
   display: block;
 }
 
+
+
 .description {
   width: 120%;
   margin-top: -10px;
@@ -238,4 +295,5 @@ p {
   width: 500px;
   text-align: center;
 }
+
 
