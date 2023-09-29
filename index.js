@@ -87,7 +87,6 @@ entree.addEventListener("change", (e) => {
   const imgUrl = e.target.value;
   const img = document.createElement("img");
   img.setAttribute("id", "dish-img");
-
   img.src = imgUrl;
 
   selectedImage.innerHTML = "";
