@@ -58,6 +58,12 @@ image.addEventListener(`click`, () => foodImgDisplay(mealData))
 
 
 const newMealType = document.querySelector("#new-form > div > select");
+const newForm = document.querySelector(".col-1");
+const newMealName = document.querySelector("new-meal");
+const newIngredients = document.querySelector("new-ingredients");
+const newRecipe = document.querySelector("new-recipe");
+const mealModal = document.querySelector("#meal-modal");
+
 // Fetch Request
 const fetchApi = () => {
   fetch(apiUrl + selectedCountry)
@@ -65,6 +71,7 @@ const fetchApi = () => {
     .then((mealData) => renderMeals(mealData))
     .catch((error) => console.log("There wafvbs an error"));
 };
+
 
 
 // const newMealType = document.querySelector("#new-meal-type");
@@ -120,11 +127,7 @@ const fetchApi = () => {
 
 
 
-const newForm = document.querySelector('.col-1');
 
-const newMealName = document.querySelector('new-meal');
-const newIngredients = document.querySelector('new-ingredients');
-const newRecipe = document.querySelector('new-recipe');
 // const mealModal = document.querySelector('#meal-modal');
 
 //! Create submit event
@@ -132,6 +135,7 @@ const newRecipe = document.querySelector('new-recipe');
 // need to post new data entered by user into the API and onto the page
 // ? where should the submited data end up on page? !!! It should go into the Countries dropdown as an 'li'
 //  may need to append data to a location on the page ^^
+
 newForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const addNewMealType = newMealType.value;
@@ -145,20 +149,9 @@ newForm.addEventListener("submit", (e) => {
 
   newForm.reset();
 });
-// ! Add modal to submitted meal li
-// submittedMeal.addEventListener("mouseover", (e) => {
-//   const li = document.createElement("li");
-//   li.textContent = meal.name;
-//   const div = document.createElement("div");
-//   div.id = "meal-modal";
-//   div.className = "modal";
-//   const div2 = document.createElement("div");
-//   div2.className = "modal-content";
-//   const span = document.createElement("span");
-//   span.className = "close";
-// });
 
 // ! Add modal to submitted meal li
+
 submittedMeal.addEventListener('mouseover', (e) => {
   const li = document.createElement('li')
   li.textContent = meal.name
@@ -172,6 +165,19 @@ submittedMeal.addEventListener('mouseover', (e) => {
 
 
 })
+
+
+submittedMeal.addEventListener("mouseover", (e) => {
+  const li = document.createElement("li");
+  li.textContent = meal.name;
+  const div = document.createElement("div");
+  div.id = "meal-modal";
+  div.className = "modal";
+  const div2 = document.createElement("div");
+  div2.className = "modal-content";
+  const span = document.createElement("span");
+  span.className = "close";
+});
 
 
 
@@ -202,10 +208,14 @@ const entreeMenu = (foodItem) => {
 entree.addEventListener("change", (e) => {
   const imgUrl = e.target.value;
   const img = document.createElement("img");
+  img.setAttribute("id", "dish-img");
+
   img.src = imgUrl;
+
   selectedImage.innerHTML = "";
   selectedImage.append(img);
 });
+
 
 
 
