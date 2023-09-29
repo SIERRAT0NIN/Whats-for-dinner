@@ -93,8 +93,8 @@
         <form action="" class="col-1 container-flex" id="new-form">
 
             <div class="dropdown">
+                
             </div>
-
             <br><br>
             <label for="new-side">Name of meal</label>
             <input type="text" id="new-side" placeholder="Enter name of meal">
@@ -105,28 +105,37 @@
             <label for="new-dessert">Recipe</label>
             <input type="text" id="new-dessert" placeholder="Enter recipe">
             <br><br>
-            <button class="submit-meal">Submit new meal</button>
+
+            <button class="submit-meal btn btn-dark">Submit new meal</button>
+
 
         </form>
     </div>
 
     <div>
-        <ul id="submitted-meal-container"></ul>
-    </div>
-    <footer class="container-fluid">
-        <div id="footer">What's for Dinner?© 2023</div>
-    </footer>
-    </div>
-    </form>
-    <div id="submit-output" class="list" placeholder="Your Recipe Here">
-        <!-- <div id="meal-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close"></span>
-                </div>
-            </div> -->
+        <ul id="submitted-meal-container">YOUR RECIPES</ul>
+            <li id="submission-list"></li>
+        
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModalBtn" class="close">&times;</span>
+                <h2 class="meal-name"></h2>
+                <p id="modalIng">This is a mouseover modal.</p>
+                <p id="modalRecipe"></p>
+            </div>
+        </div>
     </div>
 
+            <br><br>
 
+            <footer class="container-fluid">
+                <div id="footer">What's for Dinner?© 2023</div>
+            </footer>
+        </div>  
+        </form>
+        <div id="submit-output" class="list" placeholder="Your Recipe Here">
+            
+        </div>
 
 </body>
 
