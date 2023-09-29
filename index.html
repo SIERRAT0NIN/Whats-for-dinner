@@ -11,31 +11,8 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Javascript -->
 
-
-
-
-
-    <!-- anne-branch -->
-
-    <!-- Web page is responsive. The content will adjust according to the screen size, (mobile). -->
-
-
     <script defer src="index.js"></script>
-
-    <!-- Web page is reponsive. The content will adjust according to the screen size, (mobile). -->
-
-    <!-- anne-branch -->
-
-    <!-- "class='container-flex','container-fluid','container' " come from Bootstrap, to make the page responsive. -->
-
-
-
-
-
-
-
 </head>
-
 
 <body class="container-flex">
     <!-- Header -->
@@ -45,208 +22,110 @@
                     alt="What's for dinner Logo"></a>
         </h1>
     </div>
+    <div class="description container-fluid">
+        <p>What's for Dinner?
+
+            The never ending question: what to have for dinner. This web application will help you create new and
+            interesting meals for yourself and your family.
+
+        </p>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <!-- Your modal content here -->
+            <p> RECIPES RECIPES RECIPES </p>
+        </div>
+    </div>
+
+
+
+
 
     <!-- Dropdown Buttons -->
     <div class="dropdown-group drop-down-btn container-fluid col-2-md">
-        <div class="dropdown">
-            <select class="dropdown-menu select-group country show">
-                <option class="dropdown-item" value="">Select a country</option>
-                <option class="dropdown-item" value="American">American</option>
-                <option class="dropdown-item" value="British">British </option>
-                <option class="dropdown-item" value="Canadian">Canadian </option>
-                <option class="dropdown-item" value="Chinese">Chinese </option>
-                <option class="dropdown-item" value="Croatian">Croatian </option>
-                <option class="dropdown-item" value="Dutch">Dutch </option>
-                <option class="dropdown-item" value="Egyptian">Egyptian </option>
-                <option class="dropdown-item" value="Filipino">Filipino </option>
-                <option class="dropdown-item" value="French">French </option>
-                <option class="dropdown-item" value="Greek">Greek </option>
-                <option class="dropdown-item" value="Indian">Indian </option>
-                <option class="dropdown-item" value="Irish">Irish </option>
-                <option class="dropdown-item" value="Italian">Italian </option>
-                <option class="dropdown-item" value="Jamaican">Jamaican </option>
-                <option class="dropdown-item" value="Japanese">Japanese </option>
-                <option class="dropdown-item" value="Kenyan">Kenyan </option>
-                <option class="dropdown-item" value="Malaysian">Malaysian </option>
-                <option class="dropdown-item" value="Mexican">Mexican </option>
-                <option class="dropdown-item" value="Moroccan">Moroccan </option>
-                <option class="dropdown-item" value="Norwegian">Norwegian </option>
-                <option class="dropdown-item" value="Polish">Polish </option>
-                <option class="dropdown-item" value="Portuguese">Portuguese </option>
-                <option class="dropdown-item" value="Russian">Russian </option>
-                <option class="dropdown-item" value="Saudi Arabian">Saudi Arabian </option>
-                <option class="dropdown-item" value="Slovakian">Slovakian </option>
-                <option class="dropdown-item" value="Spanish">Spanish </option>
-                <option class="dropdown-item" value="Syrian">Syrian </option>
-                <option class="dropdown-item" value="Thai">Thai </option>
-                <option class="dropdown-item" value="Tunisian">Tunisian </option>
-                <option class="dropdown-item" value="Turkish">Turkish </option>
-                <option class="dropdown-item" value="Vietnamese">Vietnamese </option>
-            </select>
-        </div>
-
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" id=dropentree type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Entree
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item entree" href="#">TEST</a></li>
-
-                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Entree
-                </button>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-item entree"></li>
-
-
-                </ul>
-
-                <select class="entree dropdown-menu show">
+        <div class="dropdown selectors">
+            <div class="selectors">
+                <select class="dropdown-menu shadow select-group country show">
+                    <option class="dropdown-item" value="">Select a country</option>
+                    <option class="dropdown-item" value="American">American</option>
+                    <option class="dropdown-item" value="British">British </option>
+                    <option class="dropdown-item" value="Canadian">Canadian </option>
+                    <option class="dropdown-item" value="Chinese">Chinese </option>
+                    <option class="dropdown-item" value="Croatian">Croatian </option>
+                    <option class="dropdown-item" value="Dutch">Dutch </option>
+                    <option class="dropdown-item" value="Egyptian">Egyptian </option>
+                    <option class="dropdown-item" value="Filipino">Filipino </option>
+                    <option class="dropdown-item" value="French">French </option>
+                    <option class="dropdown-item" value="Greek">Greek </option>
+                    <option class="dropdown-item" value="Indian">Indian </option>
+                    <option class="dropdown-item" value="Irish">Irish </option>
+                    <option class="dropdown-item" value="Italian">Italian </option>
+                    <option class="dropdown-item" value="Jamaican">Jamaican </option>
+                    <option class="dropdown-item" value="Japanese">Japanese </option>
+                    <option class="dropdown-item" value="Kenyan">Kenyan </option>
+                    <option class="dropdown-item" value="Malaysian">Malaysian </option>
+                    <option class="dropdown-item" value="Mexican">Mexican </option>
+                    <option class="dropdown-item" value="Moroccan">Moroccan </option>
+                    <option class="dropdown-item" value="Norwegian">Norwegian </option>
+                    <option class="dropdown-item" value="Polish">Polish </option>
+                    <option class="dropdown-item" value="Portuguese">Portuguese </option>
+                    <option class="dropdown-item" value="Russian">Russian </option>
+                    <option class="dropdown-item" value="Saudi Arabian">Saudi Arabian </option>
+                    <option class="dropdown-item" value="Slovakian">Slovakian </option>
+                    <option class="dropdown-item" value="Spanish">Spanish </option>
+                    <option class="dropdown-item" value="Syrian">Syrian </option>
+                    <option class="dropdown-item" value="Thai">Thai </option>
+                    <option class="dropdown-item" value="Tunisian">Tunisian </option>
+                    <option class="dropdown-item" value="Turkish">Turkish </option>
+                    <option class="dropdown-item" value="Vietnamese">Vietnamese </option>
+                </select>
+            </div>
+            <div class="selectors">
+                <select class="entree dropdown-menu shadow show">
                     <option class="dropdown-item  selectedEntreeImage dropdown-menu" value="">Select a meal</option>
                 </select>
-
-
-                <div class="dropdown select-group">
-                    <select class="entree dropdown-menu show">
-                        <option class="dropdown-item  selectedEntreeImage dropdown-menu" value="">Select a meal</option>
-                    </select>
-
-                </div>
-
-        </div>
-
-
-        <!-- MODAL TESTINGGGGGGGGGG START-->
-
-
-
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <!-- Your modal content here -->
-                <p> RECIPES RECIPES RECIPES </p>
             </div>
         </div>
-
-
-        <!--MODAL TESTINGGGGGGGGGGGG END-->
-
-
-
-
-
-        <!-- Food pics -->
-        <div class="img-group container-flex food-pic row">
-            <div class="selectedImage col-md-4">
-                <img class="food-items" src="" alt="">
-            </div>
-        </div>
-
-
-        <!-- Add new meal form -->
-        <div class="form-group container-flex">
-
-            <form action="" class="col-1 container-flex" id="new-form">
-
-                <div class="dropdown">
-                    <form id="new-form" action="" class="col-1 container-flex">
-
-
-
-                        <form action="" class="col-1 container-flex">
-
-                            <div class="dropdown">
-                                <!-- anne-branch -->
-
-
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false" id="type-of-meal">
-                                    Type of meal
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Entree</a></li>
-                                    <li><a class="dropdown-item" href="#">Side</a></li>
-                                    <li><a class="dropdown-item" href="#">Beverage</a></li>
-                                    <li><a class="dropdown-item" href="#">Dessert</a></li>
-
-                                </ul>
-                            </div>
-                            <br><br>
-
-                            <!-- anne-branch -->
-
-
-                            </ul>
-                            <!-- </div> -->
-
-                            </ul>
-                </div>
-                <!-- anne-branch -->
-
-                <br><br>
-
-                <label for="new-side">Type of Meal</label>
-                <input type="text" id="new-meal-type" placeholder="Entree, side or dessert">
-                <br><br>
-
-                <label for="new-side">Name of Meal</label>
-                <input type="text" id="new-side" placeholder="Name your meal">
-                <br><br>
-
-
-                <!-- <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    id="type-of-meal">
-                    Type of meal
-                </button> -->
-                <select class="dropdown-menu show">
-                    <option>Entree</option>
-                    <option>Side</option>
-                    <option>Beverage</option>
-                    <option>Dessert</option>
-                </select>
-        </div>
-        <br><br>
-        <label for="new-side">Name of meal</label>
-        <input type="text" id="new-side" placeholder="Enter name of meal">
-        <br><br>
-
-        <label for="new-beverage">Ingredients</label>
-        <input type="text" id="new-beverage" placeholder="Enter ingredients">
-        <br><br>
-        <label for="new-dessert">Recipe</label>
-        <input type="text" id="new-dessert" placeholder="Enter recipe">
 
     </div>
 
-    <br><br>
-    <label for="new-side">Name of meal</label>
-    <input type="text" id="new-side" placeholder="Enter name of meal">
-    <br><br>
-    <label for="new-beverage">Ingredients</label>
-    <input type="text" id="new-beverage" placeholder="Enter ingredients">
-    <br><br>
-    <label for="new-dessert">Recipe</label>
-    <input type="text" id="new-dessert" placeholder="Enter recipe">
-    <br><br>
-    <button class="submit-meal btn btn-dark">Submit new meal</button>
+
+    <!-- Food pics -->
+    <div class="img-group container-flex food-pic row">
+        <div class="selectedImage col-md-4">
+            <!-- <img class="food-items" id="dish-image" src="" alt=""> -->
+        </div>
+    </div>
 
 
-    <br><br>
-    <button class="submit-meal btn btn-dark">Submit new meal</button>
+    <!-- Add new meal form -->
+    <div class="form-group container-flex">
 
-    </form>
+        <form action="" class="col-1 container-flex" id="new-form">
+
+            <div class="dropdown">
+            </div>
+
+            <br><br>
+            <label for="new-side">Name of meal</label>
+            <input type="text" id="new-side" placeholder="Enter name of meal">
+            <br><br>
+            <label for="new-beverage">Ingredients</label>
+            <input type="text" id="new-beverage" placeholder="Enter ingredients">
+            <br><br>
+            <label for="new-dessert">Recipe</label>
+            <input type="text" id="new-dessert" placeholder="Enter recipe">
+            <br><br>
+            <button class="submit-meal">Submit new meal</button>
+
+        </form>
     </div>
 
     <div>
         <ul id="submitted-meal-container"></ul>
     </div>
-    <br><br>
-
-
-
-
-
     <footer class="container-fluid">
         <div id="footer">What's for Dinner?© 2023</div>
     </footer>
@@ -261,10 +140,7 @@
     </div>
 
 
-    <!-- Bootstrap js -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script> -->
+
 </body>
 
 

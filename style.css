@@ -3,8 +3,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Croissant+One&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans&family=Rubik&display=swap");
 
 * {
-  background-color: #f9dbbb;
+  background-color: #f2e3db;
   font-family: "Montserrat", sans-serif;
+  color: #41644a;
 }
 
 img {
@@ -24,12 +25,7 @@ label {
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
-}
-
-option {
-  text-align: center;
-  transform: translateX(20%);
-  background-color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 form {
@@ -55,7 +51,7 @@ input {
   font-family: "Croissant One", cursive;
   background-size: cover;
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #41644a;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   color: #fff;
@@ -69,10 +65,11 @@ input {
   /* text-align: left; */
   font-family: "Croissant One", cursive;
   background-size: contain;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0.7;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  opacity: 0.5;
   position: fixed;
   margin-top: -80px;
+  border-radius: 5px;
   transform: translateX(-20px);
 }
 
@@ -82,22 +79,27 @@ input {
   }
 }
 
-.drop-down-btn {
-  width: 100%;
-  /* background-color: black; */
-  padding: 3%;
-  justify-content: space-evenly;
-  display: flex;
-  margin-left: 25%;
-  margin-right: 25%;
-  overflow: hidden;
-  margin-top: -20px;
-  margin-bottom: -10px;
-  position: relative;
+select {
+  width: auto;
 }
 
 .dropdown-menu {
-  margin-bottom: 10px;
+  width: auto;
+  background-color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectors {
+  margin-top: -20px;
+  padding-top: 20px;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .dropdown-item {
@@ -107,6 +109,7 @@ input {
 .form-group {
   width: 100%;
   padding-left: 37%;
+
   display: flex;
   justify-content: space-between;
   align-self: auto;
@@ -117,7 +120,7 @@ input {
 }
 
 .submit-meal {
-  background-color: #3b00002d;
+  background-color: #e86a33;
   text-align: center;
   display: block;
   width: 14em;
@@ -137,11 +140,13 @@ input {
 }
 
 #footer {
-  position: fixed;
-  text-align: left;
+  position: sticky;
+  text-align: center;
   bottom: 0;
   width: 100%;
   height: auto;
+  padding-top: 20px;
+  margin-top: -16px;
 }
 
 div#submit-output {
@@ -151,29 +156,6 @@ div#submit-output {
 #foodImg {
   width: 14rem;
   height: 14rem;
-}
-
-
-.modal {
-  display: none;
-  /* Hide the modal by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Semi-transparent overlay */
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .row {
@@ -189,11 +171,82 @@ div#submit-output {
   margin-top: -10px;
 }
 
-.dropdown-menu {
+/* .dropdown-menu {
+} */
+.food-items {
+  justify-content: center;
+
+  position: relative;
+  display: none;
+  width: 100;
+  height: auto;
+}
+
+#dish-img {
+  justify-content: center;
+  display: block;
   position: relative;
   margin-left: 100%;
   width: 100%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
   margin-top: 40px;
   height: auto;
+}
+
+.description {
+  width: 120%;
+  margin-top: -10px;
+  padding-top: 10px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+p {
+  width: 500px;
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  z-index: 1;
+  /* Ensure it's on top of other elements */
+}
+
+#myModal {
+  display: none;
+}
+
+/* Style for the modal container */
+.modal-content {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Style for the close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Show the modal when it's active */
+.modal.active {
+  display: block;
 }
