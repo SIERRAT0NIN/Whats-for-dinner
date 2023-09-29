@@ -17,60 +17,76 @@ const selectedEntreeImage = document.querySelector(".selectedEntreeImage");
 const selectedImg = document.querySelector("#selectedImg");
 const entree = document.querySelector(".entree");
 const newMealType = document.querySelector("#new-form > div > select");
-// Fetch Request
-const fetchApi = () => {
-  fetch(apiUrl + selectedCountry)
-    .then((response) => response.json())
-    .then((mealData) => renderMeals(mealData))
-    .catch((error) => console.log("There wafvbs an error"));
-};
-
-
-
 
 const newForm = document.querySelector('.col-1');
-const submitNewMeal = document.querySelector('#submit-output');
-// const newMealType = document.querySelector('#new-meal-type');
+// const submitNewMeal = document.querySelector('#submit-output');
 const newMealName = document.querySelector('new-meal');
 const newIngredients = document.querySelector('new-ingredients');
 const newRecipe = document.querySelector('new-recipe');
 // const mealModal = document.querySelector('#meal-modal');
+const modal = document.getElementById("myModal");
+const openModalBtn = document.getElementById("openModalBtn");
+const closeModalBtn = document.getElementById("closeModalBtn");
+
+
+// Fetch Request
+
+const fetchApi = () => {
+  fetch(apiUrl + selectedCountry)
+    .then((response) => response.json())
+    .then((mealData) => renderMeals(mealData))
+    .catch((error) => console.log("There was an error"));
+};
 
 //! Create submit event
-// event needs to point to the form to listen
-// need to post new data entered by user into the API and onto the page
-// ? where should the submited data end up on page? !!! It should go into the Countries dropdown as an 'li'
+// need to form new data entered by user into the API and onto the page
 //  may need to append data to a location on the page ^^
 newForm.addEventListener("submit", (e) => {
   e.preventDefault();
   // debugger;
-  const addNewMealType = newMealType.value;
+  // const addNewMealType = newMealType.value;
   const addMealName = e.target["new-side"].value;
   const addNewIng = e.target["new-beverage"].value;
   const addNewRecipe = e.target["new-dessert"].value;
 
   const li = document.createElement("li");
   li.textContent = addMealName;
-  submitNewMeal.append(li);
-
+  const modalBtn = document.createElement('button')
+  modalBtn.setAttribute('id', 'openModalBtn')
+  modalBtn.textContent = addMealName
+  
+  submittedMeal.append(li);
+  submittedMeal.append(modalBtn)
   newForm.reset();
 });
+openModalBtn.addEventListener("click", () => {
+  console.log('')
+  modal.classList.add("active");
+});
 
+// Close the modal when the close button or overlay is clicked
+closeModalBtn.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+// console.log(submittedMeal)
 
 // ! Add modal to submitted meal li
-submittedMeal.addEventListener('mouseover', () => {
-  const li = document.createElement('li')
-  li.textContent = 'meal-name'
-  const div = document.createElement('div')
-  div.id = 'meal-modal'
-  div.className = 'modal'
-  const div2 = document.createElement('div')
-  div2.className = 'modal-content'
-  const span = document.createElement('span')
-  span.className = 'close'
-  // submittedMeal.appendChild(li)
+// submittedMeal.addEventListener('mouseover', () => {
+//   const li = document.createElement('li')
+//   li.textContent = 'meal-name'
+//   const div = document.createElement('div')
+//   div.id = 'meal-modal'
+//   div.className = 'modal'
+//   const div2 = document.createElement('div')
+//   div2.className = 'modal-content'
+//   const span = document.createElement('span')
+//   span.className = 'close'
+//   submittedMeal.appendChild(li)
 
-})
+// })
+
+// Open the modal when the open button is clicked
+
 
 
 // ALBERTO
