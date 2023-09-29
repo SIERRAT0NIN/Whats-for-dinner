@@ -24,10 +24,15 @@ const newMealName = document.querySelector('new-meal');
 const newIngredients = document.querySelector('new-ingredients');
 const newRecipe = document.querySelector('new-recipe');
 // const mealModal = document.querySelector('#meal-modal');
-const modal = document.getElementById("myModal");
-const openModalBtn = document.getElementById("openModalBtn");
-const closeModalBtn = document.getElementById("closeModalBtn");
 
+
+// const modal = document.getElementById("myModal");
+// const openModalBtn = document.getElementById("openModalBtn");
+// const closeModalBtn = document.getElementById("closeModalBtn");
+
+const modal = document.getElementById("myModal");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const modalText = document.getElementById("modalText");
 
 // Fetch Request
 
@@ -49,25 +54,49 @@ newForm.addEventListener("submit", (e) => {
   const addNewIng = e.target["new-beverage"].value;
   const addNewRecipe = e.target["new-dessert"].value;
 
-  const li = document.createElement("li");
+  let li = document.createElement("li");
   li.textContent = addMealName;
   const modalBtn = document.createElement('button')
-  modalBtn.setAttribute('id', 'openModalBtn')
+  modalBtn.setAttribute('id', 'submitted-meal-container')
   modalBtn.textContent = addMealName
+  // li.forEach(addMealName => {})
   
-  submittedMeal.append(li);
+  // submittedMeal.append(li);
   submittedMeal.append(modalBtn)
+  submittedMeal.appendChild(li)
   newForm.reset();
 });
-openModalBtn.addEventListener("click", () => {
-  console.log('')
+
+// Function to open the modal
+function openModal(event) {
+  const addNewRecipe = event.target.textContent;
+  modalText.textContent = `Your Recipe: ${addNewRecipe}`;
   modal.classList.add("active");
-});
+}
+
+// Add mouseover event listener to each li element
+submittedMeal.addEventListener("mouseover", openModal);
+
 
 // Close the modal when the close button or overlay is clicked
 closeModalBtn.addEventListener("click", () => {
   modal.classList.remove("active");
 });
+
+
+
+
+
+
+// openModalBtn.addEventListener("click", () => {
+//   console.log('')
+//   modal.classList.add("active");
+// });
+
+// // Close the modal when the close button or overlay is clicked
+// closeModalBtn.addEventListener("click", () => {
+//   modal.classList.remove("active");
+// });
 // console.log(submittedMeal)
 
 // ! Add modal to submitted meal li
