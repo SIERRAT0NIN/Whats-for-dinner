@@ -1,6 +1,6 @@
-// Global variables
+//Global Variables
 
-const form = document.querySelector('#new-form');
+
 const submittedMeal = document.querySelector('#submitted-meal-container');
 const toggleEl = document.querySelector('.dropdown-toggle')
 const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=`;
@@ -43,7 +43,7 @@ document.addEventListener("click", function (event) {
 
 
 
-image.addEventListener(`click`, () => foodImgDisplay(mealData))
+// image.addEventListener(`click`, () => foodImgDisplay(mealData))
 /*
 
 image.addEventListener(`click`, () => foodImgDisplay(mealData))
@@ -58,7 +58,6 @@ image.addEventListener(`click`, () => foodImgDisplay(mealData))
 
 
 const newMealType = document.querySelector("#new-form > div > select");
-aec09233fc0216a7711c9fe9dbae2409b094c3
 // Fetch Request
 const fetchApi = () => {
   fetch(apiUrl + selectedCountry)
@@ -122,7 +121,7 @@ const fetchApi = () => {
 
 
 const newForm = document.querySelector('.col-1');
-// const submittedMeal = document.querySelector('#submit-output');
+
 const newMealName = document.querySelector('new-meal');
 const newIngredients = document.querySelector('new-ingredients');
 const newRecipe = document.querySelector('new-recipe');
