@@ -58,15 +58,10 @@ newForm.addEventListener("submit", (e) => {
   
   // Function to open the modal
   function openModal(event) {
-    // let h2 = document.createElement('h2')
-    // h2.textContent = ""
     modalIng.textContent = ""
     console.log(event.target)
-    // const  = event.target.textContent;
     modalIng.textContent = addNewIng;
     modal.classList.add("active");
-    
-    // h2.textContent = addNewRecipe
   }
   submittedMeal.addEventListener("mouseover", openModal)
   
