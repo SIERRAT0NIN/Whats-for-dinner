@@ -85,35 +85,6 @@ closeModalBtn.addEventListener("click", () => {
 
 
 
-// openModalBtn.addEventListener("click", () => {
-//   console.log('')
-//   modal.classList.add("active");
-// });
-
-// // Close the modal when the close button or overlay is clicked
-// closeModalBtn.addEventListener("click", () => {
-//   modal.classList.remove("active");
-// });
-// console.log(submittedMeal)
-
-// ! Add modal to submitted meal li
-// submittedMeal.addEventListener('mouseover', () => {
-//   const li = document.createElement('li')
-//   li.textContent = 'meal-name'
-//   const div = document.createElement('div')
-//   div.id = 'meal-modal'
-//   div.className = 'modal'
-//   const div2 = document.createElement('div')
-//   div2.className = 'modal-content'
-//   const span = document.createElement('span')
-//   span.className = 'close'
-//   submittedMeal.appendChild(li)
-
-// })
-
-// Open the modal when the open button is clicked
-
-
 
 // ALBERTO
 let selectedCountry = "";
