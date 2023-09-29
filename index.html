@@ -25,11 +25,28 @@
     <div class="description container-fluid">
         <p>What's for Dinner?
 
+
             The never ending question: what to have for dinner. This web application will help you create new and
             interesting meals for yourself and your family.
 
         </p>
     </div>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <!-- Your modal content here -->
+            <p> RECIPES RECIPES RECIPES </p>
+        </div>
+    </div>
+
+
+
+
+
+
+           
+    
     <!-- Dropdown Buttons -->
     <div class="dropdown-group drop-down-btn container-fluid col-2-md">
         <div class="dropdown selectors">
@@ -82,7 +99,7 @@
     <!-- Food pics -->
     <div class="img-group container-flex food-pic row">
         <div class="selectedImage col-md-4">
-            <img class="food-items" src="" alt="">
+            <!-- <img class="food-items" id="dish-image" src="" alt=""> -->
         </div>
     </div>
 
@@ -106,7 +123,11 @@
             <input type="text" id="new-dessert" placeholder="Enter recipe">
             <br><br>
 
-            <button class="submit-meal btn btn-dark">Submit new meal</button>
+            <button class="submit-meal">Submit new meal</button>
+
+
+          
+
 
 
         </form>
@@ -136,6 +157,7 @@
         <div id="submit-output" class="list" placeholder="Your Recipe Here">
             
         </div>
+
 
 </body>
 

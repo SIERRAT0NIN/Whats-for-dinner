@@ -4,7 +4,6 @@ const submittedMeal = document.querySelector("#submitted-meal-container");
 const toggleEl = document.querySelector(".dropdown-toggle");
 const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=`;
 const foodItems = document.querySelector(".food-items");
-const foodImgDisplay = document.querySelector("#food-img");
 const dropdownItem = document.querySelector(".dropdown-item");
 const dropdownMenu = document.querySelector(".dropdown-menu");
 const country = document.querySelector(".country");
@@ -88,18 +87,20 @@ closeModalBtn.addEventListener("click", () => {
 
 // ALBERTO
 let selectedCountry = "";
+let allMeals;
 
 dropdownMenu.addEventListener("change", (e) => {
   selectedCountry = e.target.value;
   fetchApi();
 });
 
-const renderMeals = (mealData) => {
+const renderMeals = (mealData => {
+  allMeals = mealData.meals
   const meals = mealData.meals;
   meals.forEach((foodItem) => {
     entreeMenu(foodItem);
   });
-};
+});
 
 const entreeMenu = (foodItem) => {
   const option = document.createElement("option");
@@ -110,12 +111,99 @@ const entreeMenu = (foodItem) => {
   entree.append(option);
 };
 
+// const dishImage = document.querySelector("#dish-img")
 entree.addEventListener("change", (e) => {
   const imgUrl = e.target.value;
+  const findMeal = allMeals.find(meal => meal.strMealThumb === imgUrl)
   const img = document.createElement("img");
+  img.addEventListener("click", () => openModal(findMeal));
   img.setAttribute("id", "dish-img");
   img.src = imgUrl;
-
+  // console.log(dishImage)
   selectedImage.innerHTML = "";
   selectedImage.append(img);
+});
+
+
+//Modal TESTING END
+
+// function openModal() {
+
+//   let modal = document.getElementById("myModal");
+//   modal.style.display = "block";
+// }
+
+// selectedImage.addEventListener(`click`, () => {
+//   let modal = document.getElementById("myModal");
+//   modal.style.display = "block";
+// });
+
+
+
+
+// function closeModal() {
+//   let modal = document.getElementById("myModal");
+//   modal.style.display = "none";
+
+// }
+
+// document.addEventListener("click", function (event) {
+//   if (!event.target.closest(".modal-content")) {
+//     closeModal();
+//   }
+// })
+
+
+
+
+// console.log(dishImage)
+
+// selectedImage.addEventListener(`click`, () => {
+
+//   let modal = document.getElementById("myModal");
+//   modal.style.backgroundColor = "red";
+
+// });
+
+
+
+
+
+
+
+//listener to `#dish-img`
+// document.addEventListener(`click`, function ())
+//MODAL TESTING END
+var modal = document.getElementById("myModal");
+var openModalButton = document.getElementById("openModalButton");
+var closeModalButton = document.getElementById("closeModalButton");
+
+// Function to open the modal
+function openModal(findMeal) {
+  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${findMeal.idMeal}`)
+    .then(response => response.json())
+    .then(mealInfo => {
+      modal.innerHTML += `
+      <h2>${mealInfo.meals[0].strMeal}</h2>
+      <p>${mealInfo.meals[0].strInstructions}</p>
+      <span>Source: ${mealInfo.meals[0].strSource}</span>
+      `
+    })
+  modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+  modal.style.display = "none";
+}
+
+// Event listeners for opening and closing the modal
+// dishImage.addEventListener("click", openModal);
+// closeModalButton.addEventListener("click", closeModal);
+
+// Close the modal when clicking outside of it
+window.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
 });
