@@ -21,13 +21,12 @@ const newMealName = document.querySelector("new-meal");
 const newIngredients = document.querySelector("new-ingredients");
 const newRecipe = document.querySelector("new-recipe");
 const mealModal = document.querySelector("#meal-modal");
-const submitList = document.querySelector('#submission-list')
-
+const submitList = document.querySelector("#submission-list");
 const aModal = document.getElementById("anneModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const modalIng = document.getElementById("modalIng");
-const modalRec = document.querySelector('#modalRecipe')
-const modalHeader = document.querySelector('.meal-name')
+const modalRec = document.querySelector("#modalRecipe");
+const modalHeader = document.querySelector(".meal-name");
 
 // Fetch Request
 const fetchApi = () => {
@@ -39,51 +38,45 @@ const fetchApi = () => {
 
 newForm.addEventListener("submit", (e) => {
   e.preventDefault();
- 
+
   const addMealName = e.target["new-side"].value;
   const addNewIng = e.target["new-beverage"].value;
   const addNewRecipe = e.target["new-dessert"].value;
 
   let li = document.createElement("li");
   li.textContent = addMealName;
-  let newIngP = document.createElement('p')
-  newIngP.textContent = addNewIng
-  let newRecP = document.createElement('p')
-  newRecP.textContent = addNewRecipe
-  console.log(li)
-  const modalBtn = document.createElement('button')
-  modalBtn.setAttribute('id', 'submission-list')
-  modalBtn.textContent = submitList
-  
+  li.setAttribute("id", "newListItem");
+  let newIngP = document.createElement("p");
+  newIngP.textContent = addNewIng;
+  let newRecP = document.createElement("p");
+  newRecP.textContent = addNewRecipe;
+  console.log(li);
+  const modalBtn = document.createElement("button");
+  modalBtn.setAttribute("id", "submission-list");
+  modalBtn.textContent = submitList;
+
   // Function to open the modal
   function openModal(event) {
-    modalIng.textContent = ""
-    console.log(event.target)
+    modalIng.textContent = "";
+    console.log(event.target);
     modalIng.textContent = addNewIng;
     aModal.classList.add("active");
   }
-  submittedMeal.addEventListener("mouseover", openModal)
-  
+  submittedMeal.addEventListener("click", openModal);
+
   // submitList.append(modalBtn)
-  modalHeader.append(addMealName)
-  modalIng.append(newIngP)
-  modalRec.append(newRecP)
-  submittedMeal.appendChild(li)
+  modalHeader.append(addMealName);
+  modalIng.append(newIngP);
+  modalRec.append(newRecP);
+  submittedMeal.appendChild(li);
   newForm.reset();
 });
 // Add mouseover event listener to each li element
-
 
 // Close the modal when the close button or overlay is clicked
 closeModalBtn.addEventListener("click", () => {
   aModal.classList.remove("active");
 });
-
-
-
-
-
-
 
 // ALBERTO
 let selectedCountry = "";
@@ -94,13 +87,13 @@ dropdownMenu.addEventListener("change", (e) => {
   fetchApi();
 });
 
-const renderMeals = (mealData => {
-  allMeals = mealData.meals
+const renderMeals = (mealData) => {
+  allMeals = mealData.meals;
   const meals = mealData.meals;
   meals.forEach((foodItem) => {
     entreeMenu(foodItem);
   });
-});
+};
 
 const entreeMenu = (foodItem) => {
   const option = document.createElement("option");
@@ -114,7 +107,7 @@ const entreeMenu = (foodItem) => {
 // const dishImage = document.querySelector("#dish-img")
 entree.addEventListener("change", (e) => {
   const imgUrl = e.target.value;
-  const findMeal = allMeals.find(meal => meal.strMealThumb === imgUrl)
+  const findMeal = allMeals.find((meal) => meal.strMealThumb === imgUrl);
   const img = document.createElement("img");
   img.addEventListener("click", () => openModal(findMeal));
   img.setAttribute("id", "dish-img");
@@ -123,7 +116,6 @@ entree.addEventListener("change", (e) => {
   selectedImage.innerHTML = "";
   selectedImage.append(img);
 });
-
 
 //Modal TESTING END
 
@@ -138,9 +130,6 @@ entree.addEventListener("change", (e) => {
 //   modal.style.display = "block";
 // });
 
-
-
-
 // function closeModal() {
 //   let modal = document.getElementById("myModal");
 //   modal.style.display = "none";
@@ -153,9 +142,6 @@ entree.addEventListener("change", (e) => {
 //   }
 // })
 
-
-
-
 // console.log(dishImage)
 
 // selectedImage.addEventListener(`click`, () => {
@@ -164,12 +150,6 @@ entree.addEventListener("change", (e) => {
 //   modal.style.backgroundColor = "red";
 
 // });
-
-
-
-
-
-
 
 //listener to `#dish-img`
 // document.addEventListener(`click`, function ())
@@ -180,15 +160,17 @@ var closeModalButton = document.getElementById("closeModalButton");
 
 // Function to open the modal
 function openModal(findMeal) {
-  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${findMeal.idMeal}`)
-    .then(response => response.json())
-    .then(mealInfo => {
+  fetch(
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${findMeal.idMeal}`
+  )
+    .then((response) => response.json())
+    .then((mealInfo) => {
       modal.innerHTML += `
       <h2>${mealInfo.meals[0].strMeal}</h2>
       <p>${mealInfo.meals[0].strInstructions}</p>
       <span>Source: ${mealInfo.meals[0].strSource}</span>
-      `
-    })
+      `;
+    });
   modal.style.display = "block";
 }
 

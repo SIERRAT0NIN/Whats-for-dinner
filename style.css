@@ -92,8 +92,6 @@ select {
   align-items: center;
 }
 
-
-
 .selectors {
   margin-top: -20px;
   padding-top: 20px;
@@ -131,19 +129,14 @@ select {
   margin-bottom: 10px;
 }
 
-
 #submitted-meal-container {
   align-content: center;
   display: contents;
-
 }
 
 #submission-list {
   display: contents;
 }
-
-
-
 
 #footer {
   position: sticky;
@@ -192,9 +185,12 @@ div#submit-output {
   justify-content: center;
   display: block;
   position: relative;
-  display: flex;
+  margin-left: 100%;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+  margin-top: 40px;
+  height: auto;
 }
-
 
 .modal {
   display: none;
@@ -219,7 +215,6 @@ div#submit-output {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
-
 
 .description {
   width: 120%;
@@ -265,8 +260,6 @@ p {
   text-align: center;
 }
 
-
-
 /* Style for the close button */
 .close {
   position: absolute;
@@ -281,8 +274,6 @@ p {
   display: block;
 }
 
-
-
 .description {
   width: 120%;
   margin-top: -10px;
@@ -296,4 +287,6 @@ p {
   text-align: center;
 }
 
-
+#newListItem {
+  width: auto;
+}
